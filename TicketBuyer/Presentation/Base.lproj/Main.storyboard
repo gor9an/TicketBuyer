@@ -19,23 +19,45 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rL5-mP-Zuc">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-lL-J6e" userLabel="Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="30.666666666666668"/>
-                                        <color key="backgroundColor" systemColor="underPageBackgroundColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TICKET BUYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-lL-J6e" userLabel="Label">
+                                        <rect key="frame" x="109.66666666666669" y="0.0" width="174" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="iJb-mQ-qd0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" systemColor="underPageBackgroundColor"/>
                                         <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="shadowOffset" width="2" height="2"/>
                                     </label>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-It-klv">
-                                        <rect key="frame" x="20" y="40.666666666666686" width="353" height="718.33333333333326"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-It-klv">
+                                        <rect key="frame" x="20" y="50" width="353" height="709"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-6x-5BV">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="982.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="1244.6666666666667"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOt-eb-NOQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rm-wo-3fy" userLabel="LoginTextField">
+                                                        <rect key="frame" x="0.0" y="46.333333333333343" width="353" height="34.333333333333343"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5BY-xh-wU6" userLabel="passTextField">
+                                                        <rect key="frame" x="0.0" y="100.66666666666666" width="353" height="34"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6pw-Ht-NTr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="206.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="154.66666666666669" width="353" height="206.33333333333331"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Актульно в кино" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey4-yh-lpM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
@@ -44,7 +66,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2D-Pg-O4y">
-                                                                <rect key="frame" x="0.0" y="36.333333333333329" width="353" height="170"/>
+                                                                <rect key="frame" x="0.0" y="36.333333333333314" width="353" height="170"/>
                                                                 <subviews>
                                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuv-F6-o94">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="170"/>
@@ -118,14 +140,14 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-pd-ujD">
-                                                        <rect key="frame" x="0.0" y="226.33333333333331" width="353" height="529.66666666666674"/>
+                                                        <rect key="frame" x="0.0" y="381.00000000000006" width="353" height="529.33333333333348"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fZB-pd-ujD" secondAttribute="height" multiplier="2:3" id="VyT-S6-0G5"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fQq-zN-wbe">
-                                                        <rect key="frame" x="0.0" y="776" width="353" height="206.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="930.33333333333337" width="353" height="206.33333333333337"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кино на все времена" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCI-5f-YlV" userLabel="forAllTime">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
@@ -134,7 +156,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJv-qv-BdE">
-                                                                <rect key="frame" x="0.0" y="36.333333333333371" width="353" height="170"/>
+                                                                <rect key="frame" x="0.0" y="36.333333333333485" width="353" height="170"/>
                                                                 <subviews>
                                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-ef-oBG" userLabel="forAllTimeScrollView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="170"/>
@@ -207,7 +229,14 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YZP-5M-Qn3">
+                                                        <rect key="frame" x="0.0" y="1156.6666666666667" width="353" height="88"/>
+                                                    </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1244.6666666666667" id="F2A-WJ-N1F"/>
+                                                    <constraint firstItem="YZP-5M-Qn3" firstAttribute="top" secondItem="MHN-6x-5BV" secondAttribute="top" constant="1156.6666666666667" id="JmX-U0-f1Z"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -221,10 +250,9 @@
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="jNF-lL-J6e" secondAttribute="trailing" id="AlJ-DG-h2m"/>
+                                    <constraint firstItem="tPs-It-klv" firstAttribute="top" secondItem="jNF-lL-J6e" secondAttribute="bottom" constant="10" id="fot-hd-0zc"/>
                                     <constraint firstAttribute="trailing" secondItem="tPs-It-klv" secondAttribute="trailing" constant="20" id="hhB-J3-8N2"/>
                                     <constraint firstItem="tPs-It-klv" firstAttribute="leading" secondItem="rL5-mP-Zuc" secondAttribute="leading" constant="20" id="m3y-8i-jti"/>
-                                    <constraint firstItem="jNF-lL-J6e" firstAttribute="leading" secondItem="rL5-mP-Zuc" secondAttribute="leading" id="uYx-qX-bGH"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -240,10 +268,13 @@
                     <connections>
                         <outlet property="actualScrollView" destination="Xuv-F6-o94" id="QeW-48-Hzq"/>
                         <outlet property="firstMainStackViewImage" destination="n7U-s6-bda" id="mYX-AK-zZW"/>
+                        <outlet property="firstSecScrollVImage" destination="zGS-ar-Tjj" id="7YL-FS-TNK"/>
                         <outlet property="forAllTimeScrollView" destination="OpP-ef-oBG" id="kfe-pw-mY9"/>
                         <outlet property="generalImage" destination="fZB-pd-ujD" id="gjb-5y-nZf"/>
                         <outlet property="secondMainStackViewImage" destination="Vbe-z6-ZUG" id="dSe-z3-20g"/>
+                        <outlet property="secondSecScrollVImage" destination="fgB-k2-Ajd" id="V9H-5y-Eb3"/>
                         <outlet property="thirdMainStackViewImage" destination="IAm-da-cC5" id="Hqo-eR-akX"/>
+                        <outlet property="thirdSecScrollVImage" destination="ygJ-Vj-SIZ" id="iO4-EC-C8x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
