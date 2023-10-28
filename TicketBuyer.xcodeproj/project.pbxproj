@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0E8F1712AED532C00C18191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E8F1732AED532C00C18191 /* Main.storyboard */; };
+		B0E8F1762AED5BB100C18191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E8F1752AED5BB100C18191 /* Assets.xcassets */; };
 		B0F94EF02ADF419500DB2741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94EEF2ADF419500DB2741 /* AppDelegate.swift */; };
 		B0F94EF22ADF419500DB2741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94EF12ADF419500DB2741 /* SceneDelegate.swift */; };
 		B0F94EF42ADF419500DB2741 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94EF32ADF419500DB2741 /* ViewController.swift */; };
-		B0F94EF72ADF419500DB2741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F94EF52ADF419500DB2741 /* Main.storyboard */; };
-		B0F94EF92ADF419800DB2741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0F94EF82ADF419800DB2741 /* Assets.xcassets */; };
 		B0F94EFC2ADF419800DB2741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F94EFA2ADF419800DB2741 /* LaunchScreen.storyboard */; };
-		B0F94F072ADF419800DB2741 /* TicketBuyerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94F062ADF419800DB2741 /* TicketBuyerTests.swift */; };
-		B0F94F112ADF419800DB2741 /* TicketBuyerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94F102ADF419800DB2741 /* TicketBuyerUITests.swift */; };
-		B0F94F132ADF419800DB2741 /* TicketBuyerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94F122ADF419800DB2741 /* TicketBuyerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,19 +33,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0E8F1722AED532C00C18191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B0E8F1752AED5BB100C18191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0F94EEC2ADF419500DB2741 /* TicketBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F94EEF2ADF419500DB2741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0F94EF12ADF419500DB2741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B0F94EF32ADF419500DB2741 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B0F94EF62ADF419500DB2741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B0F94EF82ADF419800DB2741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0F94EFB2ADF419800DB2741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0F94EFD2ADF419800DB2741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0F94F022ADF419800DB2741 /* TicketBuyerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketBuyerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0F94F062ADF419800DB2741 /* TicketBuyerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketBuyerTests.swift; sourceTree = "<group>"; };
 		B0F94F0C2ADF419800DB2741 /* TicketBuyerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketBuyerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0F94F102ADF419800DB2741 /* TicketBuyerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketBuyerUITests.swift; sourceTree = "<group>"; };
-		B0F94F122ADF419800DB2741 /* TicketBuyerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketBuyerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				B0F94EEE2ADF419500DB2741 /* TicketBuyer */,
-				B0F94F052ADF419800DB2741 /* TicketBuyerTests */,
-				B0F94F0F2ADF419800DB2741 /* TicketBuyerUITests */,
 				B0F94EED2ADF419500DB2741 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,32 +91,31 @@
 		B0F94EEE2ADF419500DB2741 /* TicketBuyer */ = {
 			isa = PBXGroup;
 			children = (
+				B0F94F212ADF42AA00DB2741 /* Presentation */,
+				B0F94F1F2ADF422900DB2741 /* Resources */,
+				B0F94EFD2ADF419800DB2741 /* Info.plist */,
 				B0F94EEF2ADF419500DB2741 /* AppDelegate.swift */,
 				B0F94EF12ADF419500DB2741 /* SceneDelegate.swift */,
-				B0F94EF32ADF419500DB2741 /* ViewController.swift */,
-				B0F94EF52ADF419500DB2741 /* Main.storyboard */,
-				B0F94EF82ADF419800DB2741 /* Assets.xcassets */,
-				B0F94EFA2ADF419800DB2741 /* LaunchScreen.storyboard */,
-				B0F94EFD2ADF419800DB2741 /* Info.plist */,
 			);
 			path = TicketBuyer;
 			sourceTree = "<group>";
 		};
-		B0F94F052ADF419800DB2741 /* TicketBuyerTests */ = {
+		B0F94F1F2ADF422900DB2741 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B0F94F062ADF419800DB2741 /* TicketBuyerTests.swift */,
+				B0F94EFA2ADF419800DB2741 /* LaunchScreen.storyboard */,
+				B0E8F1752AED5BB100C18191 /* Assets.xcassets */,
 			);
-			path = TicketBuyerTests;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		B0F94F0F2ADF419800DB2741 /* TicketBuyerUITests */ = {
+		B0F94F212ADF42AA00DB2741 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				B0F94F102ADF419800DB2741 /* TicketBuyerUITests.swift */,
-				B0F94F122ADF419800DB2741 /* TicketBuyerUITestsLaunchTests.swift */,
+				B0F94EF32ADF419500DB2741 /* ViewController.swift */,
+				B0E8F1732AED532C00C18191 /* Main.storyboard */,
 			);
-			path = TicketBuyerUITests;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F94EFC2ADF419800DB2741 /* LaunchScreen.storyboard in Resources */,
-				B0F94EF92ADF419800DB2741 /* Assets.xcassets in Resources */,
-				B0F94EF72ADF419500DB2741 /* Main.storyboard in Resources */,
+				B0E8F1762AED5BB100C18191 /* Assets.xcassets in Resources */,
+				B0E8F1712AED532C00C18191 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F94F072ADF419800DB2741 /* TicketBuyerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F94F132ADF419800DB2741 /* TicketBuyerUITestsLaunchTests.swift in Sources */,
-				B0F94F112ADF419800DB2741 /* TicketBuyerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +285,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B0F94EF52ADF419500DB2741 /* Main.storyboard */ = {
+		B0E8F1732AED532C00C18191 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B0F94EF62ADF419500DB2741 /* Base */,
+				B0E8F1722AED532C00C18191 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -448,8 +436,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,9 +446,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = andreigordienko.TicketBuyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -476,8 +468,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,9 +478,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = andreigordienko.TicketBuyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

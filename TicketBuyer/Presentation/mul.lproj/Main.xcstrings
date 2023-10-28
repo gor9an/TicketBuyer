@@ -1,0 +1,18 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "jNF-lL-J6e.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"TB\"; ObjectID = \"jNF-lL-J6e\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "TB"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
