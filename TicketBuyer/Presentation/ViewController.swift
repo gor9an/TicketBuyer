@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondSecScrollVImage: UIImageView!
     @IBOutlet weak var thirdSecScrollVImage: UIImageView!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
     @IBOutlet weak var forAllTimeScrollView: UIScrollView!
     @IBOutlet weak var actualScrollView: UIScrollView!
     
@@ -27,9 +29,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //Scroll View settings
-        setScrollViewSettings(scrollView: forAllTimeScrollView)
-        setScrollViewSettings(scrollView: actualScrollView)
-        
+        forAllTimeScrollView.layer.cornerRadius = 30
+        actualScrollView.layer.cornerRadius = 30
         
         //Images settings
         firstMainStackViewImage.layer.cornerRadius = 30
@@ -41,16 +42,10 @@ class ViewController: UIViewController {
         firstSecScrollVImage.layer.cornerRadius = 30
         secondSecScrollVImage.layer.cornerRadius = 30
         thirdSecScrollVImage.layer.cornerRadius = 30
+        
+        loginButton.layer.cornerRadius = 15
 
     }
-    func setScrollViewSettings(scrollView: UIScrollView) {
-        scrollView.layer.masksToBounds = true // даём разрешение на рисование рамки
-
-        scrollView.layer.cornerRadius = 30 // радиус скругления углов рамки
-        scrollView.layer.borderColor = UIColor.black.cgColor
-        scrollView.layer.borderWidth = 4 // толщина рамки
-    }
-
-
+    
 }
 

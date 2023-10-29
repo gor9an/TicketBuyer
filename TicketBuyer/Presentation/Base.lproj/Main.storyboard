@@ -20,7 +20,8 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TICKET BUYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-lL-J6e" userLabel="Label">
-                                        <rect key="frame" x="109.66666666666669" y="0.0" width="174" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                                        <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iJb-mQ-qd0"/>
                                         </constraints>
@@ -34,12 +35,12 @@
                                         <rect key="frame" x="20" y="50" width="353" height="709"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-6x-5BV">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="1134.6666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="1203.6666666666667"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="65R-w0-vMI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="132.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="201.33333333333334"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOt-eb-NOQ">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOt-eb-NOQ" userLabel="LoginLabel">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,10 +60,21 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-00-5IG">
+                                                                <rect key="frame" x="0.0" y="151.33333333333331" width="353" height="50"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="J0u-lg-gzm"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Войти">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6pw-Ht-NTr">
-                                                        <rect key="frame" x="0.0" y="152.33333333333331" width="353" height="206.33333333333331"/>
+                                                        <rect key="frame" x="0.0" y="221.33333333333331" width="353" height="206.33333333333331"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Актульно в кино" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey4-yh-lpM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
@@ -122,9 +134,9 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </stackView>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="bPZ-df-Ouu" secondAttribute="bottom" constant="20" id="HC5-z9-CwL"/>
                                                                             <constraint firstItem="bPZ-df-Ouu" firstAttribute="top" secondItem="Xuv-F6-o94" secondAttribute="top" constant="20" id="Rfy-MS-MLq"/>
@@ -145,14 +157,14 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-pd-ujD">
-                                                        <rect key="frame" x="0.0" y="378.66666666666669" width="353" height="529.66666666666652"/>
+                                                        <rect key="frame" x="0.0" y="447.66666666666669" width="353" height="529.66666666666652"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fZB-pd-ujD" secondAttribute="height" multiplier="2:3" id="VyT-S6-0G5"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fQq-zN-wbe">
-                                                        <rect key="frame" x="0.0" y="928.33333333333337" width="353" height="206.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="997.33333333333337" width="353" height="206.33333333333337"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кино на все времена" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCI-5f-YlV" userLabel="forAllTime">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
@@ -212,9 +224,9 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </stackView>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="Dpj-cv-HK0" firstAttribute="leading" secondItem="OpP-ef-oBG" secondAttribute="leading" constant="20" id="5hb-ft-xw8"/>
                                                                             <constraint firstAttribute="bottom" secondItem="Dpj-cv-HK0" secondAttribute="bottom" constant="20" id="6BL-eA-8Di"/>
@@ -237,7 +249,6 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="MHN-6x-5BV" secondAttribute="bottom" id="2hG-oE-SmE"/>
                                             <constraint firstItem="MHN-6x-5BV" firstAttribute="leading" secondItem="tPs-It-klv" secondAttribute="leading" id="iHo-Dq-nSG"/>
@@ -248,14 +259,15 @@
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="tPs-It-klv" firstAttribute="top" secondItem="jNF-lL-J6e" secondAttribute="bottom" constant="10" id="fot-hd-0zc"/>
+                                    <constraint firstItem="jNF-lL-J6e" firstAttribute="leading" secondItem="rL5-mP-Zuc" secondAttribute="leading" id="AUx-0h-VwS"/>
+                                    <constraint firstAttribute="trailing" secondItem="jNF-lL-J6e" secondAttribute="trailing" id="W7S-na-COE"/>
                                     <constraint firstAttribute="trailing" secondItem="tPs-It-klv" secondAttribute="trailing" constant="20" id="hhB-J3-8N2"/>
                                     <constraint firstItem="tPs-It-klv" firstAttribute="leading" secondItem="rL5-mP-Zuc" secondAttribute="leading" constant="20" id="m3y-8i-jti"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rL5-mP-Zuc" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="CsB-q0-2rj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rL5-mP-Zuc" secondAttribute="bottom" id="DeC-5f-eAJ"/>
@@ -269,6 +281,7 @@
                         <outlet property="firstSecScrollVImage" destination="zGS-ar-Tjj" id="7YL-FS-TNK"/>
                         <outlet property="forAllTimeScrollView" destination="OpP-ef-oBG" id="kfe-pw-mY9"/>
                         <outlet property="generalImage" destination="fZB-pd-ujD" id="gjb-5y-nZf"/>
+                        <outlet property="loginButton" destination="XBG-00-5IG" id="ugs-3h-vKf"/>
                         <outlet property="secondMainStackViewImage" destination="Vbe-z6-ZUG" id="dSe-z3-20g"/>
                         <outlet property="secondSecScrollVImage" destination="fgB-k2-Ajd" id="V9H-5y-Eb3"/>
                         <outlet property="thirdMainStackViewImage" destination="IAm-da-cC5" id="Hqo-eR-akX"/>
