@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController, AlertPresenterDelegate {
     
+    @IBOutlet weak var loginStackView: UIStackView!
+    
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var generalImage: UIImageView!
+    
     //Main Stack View Images
     @IBOutlet weak var firstMainStackViewImage: UIImageView!
     @IBOutlet weak var secondMainStackViewImage: UIImageView!
@@ -20,9 +24,11 @@ class ViewController: UIViewController, AlertPresenterDelegate {
     @IBOutlet weak var thirdSecScrollVImage: UIImageView!
     
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     @IBOutlet weak var forAllTimeScrollView: UIScrollView!
     @IBOutlet weak var actualScrollView: UIScrollView!
+
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -53,6 +59,8 @@ class ViewController: UIViewController, AlertPresenterDelegate {
         thirdSecScrollVImage.layer.cornerRadius = 30
         
         loginButton.layer.cornerRadius = 15
+        logoutButton.layer.cornerRadius = 15
+        mainStackView.isHidden = true
 
     }
     
@@ -61,12 +69,17 @@ class ViewController: UIViewController, AlertPresenterDelegate {
         for user in usersGetSet.users {
             if (user.username == loginTextField.text)
                 && (user.password == passwordTextField.text) {
-                let text = "Вы вошли под администратором"
                 let viewModel = AlertModel(
                     title: "Успех",
-                    message: text,
+                    message: "Вы вошли под администратором",
                     buttonText: "Продожить")
+                
                 alertPresenter.requestAlert(result: viewModel)
+                
+                loginStackView.isHidden = true
+                mainStackView.isHidden = false
+
+                
                 
             } else { // 2
                 let text = "Вы ввели неправильный логин или пароль"
@@ -76,8 +89,21 @@ class ViewController: UIViewController, AlertPresenterDelegate {
                     buttonText: "Продожить")
                 alertPresenter.requestAlert(result: viewModel)
             }
-                
+            
         }
+    }
+    
+    @IBAction func logoutButtonClick(_ sender: Any) {
+        let viewModel = AlertModel(
+            title: "Успех",
+            message: "Вы вышли",
+            buttonText: "Продожить")
+        
+        alertPresenter.requestAlert(result: viewModel)
+        
+        loginStackView.isHidden = false
+        mainStackView.isHidden = true
+        
     }
     
     // MARK: - AlertPresenterDelegate
