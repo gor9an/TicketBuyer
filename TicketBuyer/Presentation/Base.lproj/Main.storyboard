@@ -70,6 +70,9 @@
                                                                 <state key="normal" title="Войти">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="loginButtonClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Mj0-64-CY1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -282,6 +285,8 @@
                         <outlet property="forAllTimeScrollView" destination="OpP-ef-oBG" id="kfe-pw-mY9"/>
                         <outlet property="generalImage" destination="fZB-pd-ujD" id="gjb-5y-nZf"/>
                         <outlet property="loginButton" destination="XBG-00-5IG" id="ugs-3h-vKf"/>
+                        <outlet property="loginTextField" destination="9rm-wo-3fy" id="xyW-ua-tPr"/>
+                        <outlet property="passwordTextField" destination="5BY-xh-wU6" id="Ln1-Zi-QtS"/>
                         <outlet property="secondMainStackViewImage" destination="Vbe-z6-ZUG" id="dSe-z3-20g"/>
                         <outlet property="secondSecScrollVImage" destination="fgB-k2-Ajd" id="V9H-5y-Eb3"/>
                         <outlet property="thirdMainStackViewImage" destination="IAm-da-cC5" id="Hqo-eR-akX"/>

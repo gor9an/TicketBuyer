@@ -5,4 +5,8 @@
 //  Created by Andrey Gordienko on 31.10.2023.
 //
 
-import Foundation
+import UIKit
+
+protocol AlertPresenterDelegate: UIViewController {
+    func didReceiveAlert()
+}

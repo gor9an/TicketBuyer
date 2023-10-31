@@ -7,6 +7,6 @@
 
 import Foundation
 class User {
-    private var users: [UserViewModel] = [
+    var users: [UserViewModel] = [
     UserViewModel(user_id: 1, username: "1", email: "1", password: "1", role: "admin")]
 }

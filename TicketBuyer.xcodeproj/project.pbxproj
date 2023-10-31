@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0BF05ED2AF14D9F00CCF2C7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05EC2AF14D9E00CCF2C7 /* UserViewModel.swift */; };
+		B0BF05EF2AF14FA600CCF2C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05EE2AF14FA600CCF2C7 /* User.swift */; };
+		B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */; };
+		B0BF05F82AF157D300CCF2C7 /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */; };
+		B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */; };
+		B0BF05FC2AF1582000CCF2C7 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */; };
 		B0E8F1712AED532C00C18191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E8F1732AED532C00C18191 /* Main.storyboard */; };
 		B0E8F1762AED5BB100C18191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E8F1752AED5BB100C18191 /* Assets.xcassets */; };
 		B0F94EF02ADF419500DB2741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94EEF2ADF419500DB2741 /* AppDelegate.swift */; };
@@ -33,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0BF05EC2AF14D9E00CCF2C7 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		B0BF05EE2AF14FA600CCF2C7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
+		B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
+		B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		B0E8F1722AED532C00C18191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0E8F1752AED5BB100C18191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0F94EEC2ADF419500DB2741 /* TicketBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +82,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0BF05F22AF1521100CCF2C7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF05F62AF157B500CCF2C7 /* AlertService */,
+				B0BF05F32AF1522500CCF2C7 /* Models */,
+				B0BF05EE2AF14FA600CCF2C7 /* User.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B0BF05F32AF1522500CCF2C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF05EC2AF14D9E00CCF2C7 /* UserViewModel.swift */,
+				B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B0BF05F62AF157B500CCF2C7 /* AlertService */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */,
+				B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */,
+			);
+			path = AlertService;
+			sourceTree = "<group>";
+		};
 		B0F94EE32ADF419500DB2741 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F94F212ADF42AA00DB2741 /* Presentation */,
+				B0BF05F22AF1521100CCF2C7 /* Service */,
 				B0F94F1F2ADF422900DB2741 /* Resources */,
 				B0F94EFD2ADF419800DB2741 /* Info.plist */,
 				B0F94EEF2ADF419500DB2741 /* AppDelegate.swift */,
@@ -113,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F94EF32ADF419500DB2741 /* ViewController.swift */,
+				B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */,
 				B0E8F1732AED532C00C18191 /* Main.storyboard */,
 			);
 			path = Presentation;
@@ -250,8 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F94EF42ADF419500DB2741 /* ViewController.swift in Sources */,
+				B0BF05ED2AF14D9F00CCF2C7 /* UserViewModel.swift in Sources */,
+				B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */,
+				B0BF05EF2AF14FA600CCF2C7 /* User.swift in Sources */,
 				B0F94EF02ADF419500DB2741 /* AppDelegate.swift in Sources */,
 				B0F94EF22ADF419500DB2741 /* SceneDelegate.swift in Sources */,
+				B0BF05F82AF157D300CCF2C7 /* AlertPresenterProtocol.swift in Sources */,
+				B0BF05FC2AF1582000CCF2C7 /* AlertModel.swift in Sources */,
+				B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
