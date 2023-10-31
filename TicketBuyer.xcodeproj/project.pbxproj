@@ -13,6 +13,7 @@
 		B0BF05F82AF157D300CCF2C7 /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */; };
 		B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */; };
 		B0BF05FC2AF1582000CCF2C7 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */; };
+		B0BF05FE2AF1A7BE00CCF2C7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05FD2AF1A7BE00CCF2C7 /* LoginViewController.swift */; };
 		B0E8F1712AED532C00C18191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E8F1732AED532C00C18191 /* Main.storyboard */; };
 		B0E8F1762AED5BB100C18191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E8F1752AED5BB100C18191 /* Assets.xcassets */; };
 		B0F94EF02ADF419500DB2741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F94EEF2ADF419500DB2741 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
 		B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		B0BF05FD2AF1A7BE00CCF2C7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B0E8F1722AED532C00C18191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0E8F1752AED5BB100C18191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0F94EEC2ADF419500DB2741 /* TicketBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F94EF32ADF419500DB2741 /* ViewController.swift */,
+				B0BF05FD2AF1A7BE00CCF2C7 /* LoginViewController.swift */,
 				B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */,
 				B0E8F1732AED532C00C18191 /* Main.storyboard */,
 			);
@@ -299,6 +302,7 @@
 				B0F94EF22ADF419500DB2741 /* SceneDelegate.swift in Sources */,
 				B0BF05F82AF157D300CCF2C7 /* AlertPresenterProtocol.swift in Sources */,
 				B0BF05FC2AF1582000CCF2C7 /* AlertModel.swift in Sources */,
+				B0BF05FE2AF1A7BE00CCF2C7 /* LoginViewController.swift in Sources */,
 				B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

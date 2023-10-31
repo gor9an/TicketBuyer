@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E2AFB868-9A24-4168-AD18-0C8620BE2BE9"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6A5DF3F-D4B4-427F-9906-462B2348A150"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TicketBuyer/Presentation/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "loginButtonTap(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A6A5DF3F-D4B4-427F-9906-462B2348A150 - e4573800bbca26c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TicketBuyer.LoginViewController.loginButtonTap(Any) -&gt; ()"
+                  moduleName = "TicketBuyer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andreygordienko/Desktop/TicketBuyer/TicketBuyer/Presentation/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "3644">
+               </Location>
+               <Location
+                  uuid = "A6A5DF3F-D4B4-427F-9906-462B2348A150 - e4573800bbca260b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TicketBuyer.LoginViewController.loginButtonTap(Any) -&gt; ()"
+                  moduleName = "TicketBuyer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andreygordienko/Desktop/TicketBuyer/TicketBuyer/Presentation/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "3692">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD67452A-5B88-4FE5-B0E1-BA7A3944B672"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TicketBuyer/Presentation/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "loginButtonTap(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AD67452A-5B88-4FE5-B0E1-BA7A3944B672 - e4573800bbca27f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TicketBuyer.LoginViewController.loginButtonTap(Any) -&gt; ()"
+                  moduleName = "TicketBuyer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andreygordienko/Desktop/TicketBuyer/TicketBuyer/Presentation/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "4035">
+               </Location>
+               <Location
+                  uuid = "AD67452A-5B88-4FE5-B0E1-BA7A3944B672 - e4573800bbca2752"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TicketBuyer.LoginViewController.loginButtonTap(Any) -&gt; ()"
+                  moduleName = "TicketBuyer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andreygordienko/Desktop/TicketBuyer/TicketBuyer/Presentation/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "3865">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
