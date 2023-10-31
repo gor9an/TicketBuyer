@@ -79,13 +79,13 @@ class ViewController: UIViewController, AlertPresenterDelegate {
                 loginStackView.isHidden = true
                 mainStackView.isHidden = false
 
+                loginTextField.isEnabled = false
+                passwordTextField.isEnabled = false
                 
-                
-            } else { // 2
-                let text = "Вы ввели неправильный логин или пароль"
+            } else {
                 let viewModel = AlertModel(
                     title: "Неудача",
-                    message: text,
+                    message: "Вы ввели неправильный логин или пароль",
                     buttonText: "Продожить")
                 alertPresenter.requestAlert(result: viewModel)
             }
@@ -104,6 +104,8 @@ class ViewController: UIViewController, AlertPresenterDelegate {
         loginStackView.isHidden = false
         mainStackView.isHidden = true
         
+        loginTextField.isEnabled = true
+        passwordTextField.isEnabled = true
     }
     
     // MARK: - AlertPresenterDelegate
