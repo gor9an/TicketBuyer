@@ -111,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rL5-mP-Zuc">
-                                <rect key="frame" x="0.0" y="95" width="393" height="662"/>
+                                <rect key="frame" x="0.0" y="95" width="393" height="723"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TICKET BUYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-lL-J6e" userLabel="Label">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
@@ -126,7 +126,7 @@
                                         <size key="shadowOffset" width="2" height="2"/>
                                     </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-It-klv">
-                                        <rect key="frame" x="20" y="50" width="353" height="612"/>
+                                        <rect key="frame" x="20" y="50" width="353" height="673"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-6x-5BV">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="1042.3333333333333"/>
@@ -377,7 +377,7 @@
                         <constraints>
                             <constraint firstItem="rL5-mP-Zuc" firstAttribute="top" secondItem="Tug-YC-aHJ" secondAttribute="top" constant="95" id="0zI-tp-vEB"/>
                             <constraint firstItem="rL5-mP-Zuc" firstAttribute="trailing" secondItem="noL-Ne-8Bj" secondAttribute="trailing" id="9vs-8a-LtB"/>
-                            <constraint firstItem="rL5-mP-Zuc" firstAttribute="centerY" secondItem="Tug-YC-aHJ" secondAttribute="centerY" id="m1D-zb-9Zs"/>
+                            <constraint firstItem="noL-Ne-8Bj" firstAttribute="bottom" secondItem="rL5-mP-Zuc" secondAttribute="bottom" id="oFK-A6-0uy"/>
                             <constraint firstItem="rL5-mP-Zuc" firstAttribute="leading" secondItem="noL-Ne-8Bj" secondAttribute="leading" id="vAv-FB-1Kq"/>
                         </constraints>
                     </view>
@@ -435,11 +435,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Od0-2G-j5k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="UPl-4l-zkP" firstAttribute="top" secondItem="Od0-2G-j5k" secondAttribute="top" id="NNZ-Eu-Ztn"/>
                             <constraint firstItem="Od0-2G-j5k" firstAttribute="trailing" secondItem="UPl-4l-zkP" secondAttribute="trailing" constant="20" id="VEF-Rm-AAj"/>
                             <constraint firstItem="UPl-4l-zkP" firstAttribute="leading" secondItem="Od0-2G-j5k" secondAttribute="leading" constant="20" id="znk-L8-g08"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cBp-nI-xDy" appends="YES" id="Mfx-yX-nmF"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="BPH-Ig-ahG"/>
                     <connections>
@@ -447,50 +451,74 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkd-Vj-l3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="cBp-nI-xDy"/>
             </objects>
             <point key="canvasLocation" x="4778" y="-580"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin View Controller-->
         <scene sceneID="usW-Fz-qHW">
             <objects>
-                <viewController id="MVy-q7-Fvf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminViewController" id="MVy-q7-Fvf" customClass="AdminViewController" customModule="TicketBuyer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cj7-79-gEt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Ui-Sy-go6">
-                                <rect key="frame" x="20" y="414.66666666666669" width="353" height="92"/>
+                                <rect key="frame" x="20" y="123" width="353" height="484"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jy-U7-uVY">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте сеансы" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-S3-e32">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Добавить фильм">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите название фильма" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBo-AZ-FeI">
+                                        <rect key="frame" x="0.0" y="44" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="ikq-2x-zT1">
+                                        <rect key="frame" x="0.0" y="98" width="353" height="330"/>
+                                        <locale key="locale" localeIdentifier="ru"/>
+                                        <connections>
+                                            <action selector="datePickerValueChanged:" destination="MVy-q7-Fvf" eventType="valueChanged" id="fJn-KD-2OE"/>
+                                        </connections>
+                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqU-u7-7Pl">
-                                        <rect key="frame" x="0.0" y="56" width="353" height="36"/>
+                                        <rect key="frame" x="0.0" y="448" width="353" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Добавить сеансы">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMovieButtonTapped:" destination="MVy-q7-Fvf" eventType="touchUpInside" id="KKi-BS-NEM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2v-8v-n7i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="i2v-8v-n7i" firstAttribute="trailing" secondItem="5Ui-Sy-go6" secondAttribute="trailing" constant="20" id="RfY-Ga-hQN"/>
-                            <constraint firstItem="5Ui-Sy-go6" firstAttribute="centerY" secondItem="i2v-8v-n7i" secondAttribute="centerY" id="fhO-aO-SuG"/>
+                            <constraint firstItem="5Ui-Sy-go6" firstAttribute="top" secondItem="i2v-8v-n7i" secondAttribute="top" constant="20" id="aI1-EB-BJA"/>
                             <constraint firstItem="5Ui-Sy-go6" firstAttribute="leading" secondItem="i2v-8v-n7i" secondAttribute="leading" constant="20" id="lXq-va-Ebw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Bfv-Yd-4lV" appends="YES" id="iru-YQ-vWh"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="7aA-3Q-6t0"/>
+                    <connections>
+                        <outlet property="addMovieButton" destination="xqU-u7-7Pl" id="Dq1-WM-pwC"/>
+                        <outlet property="datePicker" destination="ikq-2x-zT1" id="kIR-EH-qkN"/>
+                        <outlet property="titleTextField" destination="hBo-AZ-FeI" id="o9T-ce-Eqt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9i-xg-bZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Bfv-Yd-4lV"/>
             </objects>
             <point key="canvasLocation" x="4779" y="102"/>
         </scene>

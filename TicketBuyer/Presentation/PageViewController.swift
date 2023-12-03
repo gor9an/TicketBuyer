@@ -93,8 +93,6 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
     }
     
 //    MARK: AlertPresenterDelegate
-    func didReceiveAlert() {
-        <#code#>
-    }
+    func didReceiveAlert() { }
 }
 

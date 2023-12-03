@@ -80,17 +80,19 @@ extension AuthViewController: UITextFieldDelegate {
                         if let result {
                             print(result.user.uid)
                             
-                            let dbRef = Database.database().reference().child("users")
-                            dbRef.child(result.user.uid).updateChildValues(["firstname": firstname, "email": email])
+                            let reference = Database.database().reference().child("users")
+                            reference.child(result.user.uid).updateChildValues(["firstname": firstname, "email": email])
                             
                             self.dismiss(animated: true, completion: nil)
                         }
                     } else {
-                        let viewModel = AlertModel(
-                            title: "Ошибка",
-                            message: "\(String(describing: error?.localizedDescription))",
-                            buttonText: "Продожить")
-                        self.alertPresenter.requestAlert(result: viewModel)
+                        if let error {
+                            let viewModel = AlertModel(
+                                title: "Ошибка",
+                                message: "\(String(describing: error.localizedDescription))",
+                                buttonText: "Продожить")
+                            self.alertPresenter.requestAlert(result: viewModel)
+                        }
                     }
                 }
             } else {

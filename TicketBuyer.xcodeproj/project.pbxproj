@@ -14,8 +14,8 @@
 		B077475D2B1A5723007DF852 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077475C2B1A5723007DF852 /* AuthViewController.swift */; };
 		B07747632B1B9D97007DF852 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B07747622B1B9D97007DF852 /* GoogleService-Info.plist */; };
 		B07C22842B1D110000C6CB9D /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C22832B1D110000C6CB9D /* BuyViewController.swift */; };
-		B07C22862B1D139F00C6CB9D /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C22852B1D139F00C6CB9D /* MovieViewModel.swift */; };
-		B07C22882B1D159800C6CB9D /* MoviesMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C22872B1D159800C6CB9D /* MoviesMaker.swift */; };
+		B07C22862B1D139F00C6CB9D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C22852B1D139F00C6CB9D /* Movie.swift */; };
+		B0B4445E2B1D1BD4003CE8BB /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4445D2B1D1BD4003CE8BB /* AdminViewController.swift */; };
 		B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */; };
 		B0BF05F82AF157D300CCF2C7 /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */; };
 		B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */; };
@@ -49,8 +49,8 @@
 		B077475C2B1A5723007DF852 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B07747622B1B9D97007DF852 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B07C22832B1D110000C6CB9D /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
-		B07C22852B1D139F00C6CB9D /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
-		B07C22872B1D159800C6CB9D /* MoviesMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesMaker.swift; sourceTree = "<group>"; };
+		B07C22852B1D139F00C6CB9D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		B0B4445D2B1D1BD4003CE8BB /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +99,6 @@
 		B07C22892B1D15A200C6CB9D /* MoviesService */ = {
 			isa = PBXGroup;
 			children = (
-				B07C22872B1D159800C6CB9D /* MoviesMaker.swift */,
 			);
 			path = MoviesService;
 			sourceTree = "<group>";
@@ -118,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */,
-				B07C22852B1D139F00C6CB9D /* MovieViewModel.swift */,
+				B07C22852B1D139F00C6CB9D /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +180,7 @@
 				B077475C2B1A5723007DF852 /* AuthViewController.swift */,
 				B0F94EF32ADF419500DB2741 /* PageViewController.swift */,
 				B07C22832B1D110000C6CB9D /* BuyViewController.swift */,
+				B0B4445D2B1D1BD4003CE8BB /* AdminViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -326,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B4445E2B1D1BD4003CE8BB /* AdminViewController.swift in Sources */,
 				B0F94EF42ADF419500DB2741 /* PageViewController.swift in Sources */,
 				B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */,
 				B0F94EF02ADF419500DB2741 /* AppDelegate.swift in Sources */,
@@ -335,8 +336,7 @@
 				B077475D2B1A5723007DF852 /* AuthViewController.swift in Sources */,
 				B0BF05FC2AF1582000CCF2C7 /* AlertModel.swift in Sources */,
 				B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */,
-				B07C22862B1D139F00C6CB9D /* MovieViewModel.swift in Sources */,
-				B07C22882B1D159800C6CB9D /* MoviesMaker.swift in Sources */,
+				B07C22862B1D139F00C6CB9D /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

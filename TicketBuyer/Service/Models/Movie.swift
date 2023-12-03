@@ -8,6 +8,6 @@
 import Foundation
 
 struct Movie {
-    let name: String
-    let sessions: [String:[String]]
+    let title: String
+    let sessions: [Date]
 }
