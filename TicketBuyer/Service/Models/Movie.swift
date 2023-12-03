@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieViewModel {
+struct Movie {
     let name: String
     let sessions: [String:[String]]
 }
