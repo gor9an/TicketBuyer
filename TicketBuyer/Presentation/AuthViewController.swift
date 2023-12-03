@@ -17,11 +17,15 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
                 switchButton.setTitle("Войти", for: .normal)
                 firstNameTextField.isHidden = false
                 lastNameTextField.isHidden = false
+                
+                notificationLabel.text = "У вас уже есть аккаунт?"
             } else {
                 titleLabel.text = "Вход"
                 switchButton.setTitle("Зарегистрироваться", for: .normal)
                 firstNameTextField.isHidden = true
                 lastNameTextField.isHidden = true
+                
+                notificationLabel.text = "У вас нет аккаунта?"
             }
         }
     }
@@ -31,7 +35,7 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var notificationLabel: UILabel!
     @IBOutlet weak var switchButton: UIButton!
     
     private var alertPresenter: AlertPresenterProtocol = AlertPresenter()
@@ -48,28 +52,20 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        switchButton.layer.cornerRadius = 20
+        
         alertPresenter.delegate = self
     }
     
-    
-    @IBAction func switchButtonTapped(_ sender: Any) {
+//    MARK: - IBActions
+    @IBAction private func switchButtonTapped(_ sender: Any) {
         signUp = !signUp
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    func didReceiveAlert() {}
+
     
 }
 
+// MARK: - AuthViewController extension
 extension AuthViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let firstname = firstNameTextField.text!
@@ -84,7 +80,10 @@ extension AuthViewController: UITextFieldDelegate {
                         if let result {
                             print(result.user.uid)
                             
-//                            let db
+                            let dbRef = Database.database().reference().child("users")
+                            dbRef.child(result.user.uid).updateChildValues(["firstname": firstname, "email": email])
+                            
+                            self.dismiss(animated: true, completion: nil)
                         }
                     } else {
                         let viewModel = AlertModel(
@@ -100,7 +99,11 @@ extension AuthViewController: UITextFieldDelegate {
             
         }else {
             if (!email.isEmpty && !password.isEmpty) {
-                
+                Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                    if error == nil {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             } else {
                 alertPresenter.requestAlert(result: viewModel)
             }
@@ -109,4 +112,7 @@ extension AuthViewController: UITextFieldDelegate {
         
         return true
     }
+    
+    //    MARK: - AlertPresenterDelegate
+    func didReceiveAlert() {}
 }

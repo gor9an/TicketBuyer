@@ -57,12 +57,15 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Km-dZ-rPJ">
                                         <rect key="frame" x="0.0" y="314" width="353" height="50"/>
+                                        <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="c1g-1l-bp9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Войти"/>
+                                        <state key="normal" title="Войти">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="switchButtonTapped:" destination="frT-rs-RJv" eventType="touchUpInside" id="72o-GA-JV2"/>
                                         </connections>
@@ -89,6 +92,7 @@
                         <outlet property="emailTextField" destination="pd8-b3-6wA" id="QPn-g2-fyH"/>
                         <outlet property="firstNameTextField" destination="5Io-EA-YBw" id="O8Q-Hf-sh2"/>
                         <outlet property="lastNameTextField" destination="Z1j-mt-BEi" id="Zqd-RZ-Cur"/>
+                        <outlet property="notificationLabel" destination="dW8-z7-ssZ" id="Pbb-2v-RbP"/>
                         <outlet property="passwordTextField" destination="3wq-1c-bK4" id="IYD-mu-jZd"/>
                         <outlet property="switchButton" destination="4Km-dZ-rPJ" id="4eG-MC-3Et"/>
                         <outlet property="titleLabel" destination="GBj-UP-Lev" id="r2q-a5-CTI"/>
@@ -96,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOu-W8-04T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4845" y="-238"/>
+            <point key="canvasLocation" x="3950" y="-911"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="F04-PU-tUy">
@@ -125,7 +129,7 @@
                                         <rect key="frame" x="20" y="50" width="353" height="612"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-6x-5BV">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="982.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="1042.3333333333333"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dg9-6l-lgo">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="982.33333333333337"/>
@@ -151,43 +155,71 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AdQ-Ao-Hks">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n7U-s6-bda">
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkG-RG-Y6y">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
-                                                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                    </imageView>
+                                                                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="width" constant="130" id="g3C-FI-BE6"/>
+                                                                                                        </constraints>
+                                                                                                        <state key="normal" title="Button"/>
+                                                                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                        <connections>
+                                                                                                            <action selector="movieButtonTapped:" destination="Tpd-uu-17O" eventType="touchUpInside" id="uVr-Ej-8cx"/>
+                                                                                                            <segue destination="hBs-c0-5Py" kind="show" id="Gwj-I0-qtk"/>
+                                                                                                        </connections>
+                                                                                                    </button>
                                                                                                 </subviews>
                                                                                                 <constraints>
-                                                                                                    <constraint firstItem="n7U-s6-bda" firstAttribute="leading" secondItem="AdQ-Ao-Hks" secondAttribute="leading" id="4f3-JB-Tuj"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="n7U-s6-bda" secondAttribute="trailing" id="GtN-bI-yxk"/>
-                                                                                                    <constraint firstAttribute="width" constant="130" id="Liw-iw-oca"/>
-                                                                                                    <constraint firstItem="n7U-s6-bda" firstAttribute="top" secondItem="AdQ-Ao-Hks" secondAttribute="top" id="M4D-rR-HSI"/>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="n7U-s6-bda" secondAttribute="bottom" id="bf2-7S-0Oq"/>
+                                                                                                    <constraint firstItem="XkG-RG-Y6y" firstAttribute="top" secondItem="AdQ-Ao-Hks" secondAttribute="top" id="7Q1-hV-Kpe"/>
+                                                                                                    <constraint firstAttribute="trailing" secondItem="XkG-RG-Y6y" secondAttribute="trailing" id="FTK-7M-0G2"/>
+                                                                                                    <constraint firstItem="XkG-RG-Y6y" firstAttribute="leading" secondItem="AdQ-Ao-Hks" secondAttribute="leading" id="ODj-fG-IrB"/>
+                                                                                                    <constraint firstAttribute="bottom" secondItem="XkG-RG-Y6y" secondAttribute="bottom" id="kjp-7i-9ul"/>
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdy-hg-sjq">
                                                                                                 <rect key="frame" x="140" y="0.0" width="130" height="130"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vbe-z6-ZUG">
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u4-jY-YTL">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
-                                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                    </imageView>
+                                                                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="width" constant="130" id="K0S-ja-n3N"/>
+                                                                                                        </constraints>
+                                                                                                        <state key="normal" title="Button"/>
+                                                                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                        <connections>
+                                                                                                            <action selector="movieButtonTapped:" destination="Tpd-uu-17O" eventType="touchUpInside" id="OCZ-FX-9pM"/>
+                                                                                                        </connections>
+                                                                                                    </button>
                                                                                                 </subviews>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="width" constant="130" id="y9C-MR-vrM"/>
+                                                                                                    <constraint firstItem="3u4-jY-YTL" firstAttribute="leading" secondItem="cdy-hg-sjq" secondAttribute="leading" id="0aj-Hm-2pF"/>
+                                                                                                    <constraint firstAttribute="bottom" secondItem="3u4-jY-YTL" secondAttribute="bottom" id="VfW-eC-TtL"/>
+                                                                                                    <constraint firstAttribute="trailing" secondItem="3u4-jY-YTL" secondAttribute="trailing" id="xBF-9g-AuS"/>
+                                                                                                    <constraint firstItem="3u4-jY-YTL" firstAttribute="top" secondItem="cdy-hg-sjq" secondAttribute="top" id="zdO-JW-5lS"/>
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyy-fw-5qP">
                                                                                                 <rect key="frame" x="280" y="0.0" width="130" height="130"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAm-da-cC5">
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W33-zF-b6y">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
-                                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                    </imageView>
+                                                                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="width" constant="130" id="e2s-3p-8xY"/>
+                                                                                                        </constraints>
+                                                                                                        <state key="normal" title="Button"/>
+                                                                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                        <connections>
+                                                                                                            <action selector="movieButtonTapped:" destination="Tpd-uu-17O" eventType="touchUpInside" id="bgU-hf-e5r"/>
+                                                                                                        </connections>
+                                                                                                    </button>
                                                                                                 </subviews>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="width" constant="130" id="hUZ-5z-ERm"/>
+                                                                                                    <constraint firstItem="W33-zF-b6y" firstAttribute="leading" secondItem="lyy-fw-5qP" secondAttribute="leading" id="E5e-Hm-F3r"/>
+                                                                                                    <constraint firstAttribute="bottom" secondItem="W33-zF-b6y" secondAttribute="bottom" id="R2s-Gf-dRE"/>
+                                                                                                    <constraint firstAttribute="trailing" secondItem="W33-zF-b6y" secondAttribute="trailing" id="bEt-fk-DW3"/>
+                                                                                                    <constraint firstItem="W33-zF-b6y" firstAttribute="top" secondItem="lyy-fw-5qP" secondAttribute="top" id="jbl-D3-VN5"/>
                                                                                                 </constraints>
                                                                                             </view>
                                                                                         </subviews>
@@ -304,14 +336,23 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="fZB-pd-ujD" firstAttribute="centerY" secondItem="dg9-6l-lgo" secondAttribute="centerY" id="wBF-N9-THK"/>
-                                                        </constraints>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-n1-vsC">
+                                                        <rect key="frame" x="0.0" y="1002.3333333333333" width="353" height="40"/>
+                                                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="65x-kN-FTc"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Админ">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="MVy-q7-Fvf" kind="show" id="J7I-Px-uJd"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="982.33333333333337" id="pGq-tB-fLg"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -341,23 +382,117 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HRp-nH-WPF">
-                        <barButtonItem key="leftBarButtonItem" title="Выйти" id="ZII-pH-ql1"/>
+                        <barButtonItem key="leftBarButtonItem" title="Выйти" id="ZII-pH-ql1">
+                            <connections>
+                                <action selector="exitButtonTapped:" destination="Tpd-uu-17O" id="yyR-cm-Cdu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="actualScrollView" destination="Xuv-F6-o94" id="YM2-QU-iob"/>
-                        <outlet property="firstMainStackViewImage" destination="n7U-s6-bda" id="nqO-4o-Xf2"/>
+                        <outlet property="adminButton" destination="9iu-n1-vsC" id="Fma-sr-Byq"/>
+                        <outlet property="firstMainStackViewButton" destination="XkG-RG-Y6y" id="3G2-LI-U4V"/>
                         <outlet property="firstSecScrollVImage" destination="zGS-ar-Tjj" id="ASq-Hc-gJn"/>
                         <outlet property="forAllTimeScrollView" destination="OpP-ef-oBG" id="DK3-kd-wzJ"/>
                         <outlet property="generalImage" destination="fZB-pd-ujD" id="Hy7-ge-pvl"/>
-                        <outlet property="secondMainStackViewImage" destination="Vbe-z6-ZUG" id="cWS-Pm-yGl"/>
+                        <outlet property="secondMainStackViewButton" destination="3u4-jY-YTL" id="in9-fh-NqL"/>
                         <outlet property="secondSecScrollVImage" destination="fgB-k2-Ajd" id="X3h-Re-dIt"/>
-                        <outlet property="thirdMainStackViewImage" destination="IAm-da-cC5" id="sfm-4a-rU5"/>
+                        <outlet property="thirdMainStackViewButton" destination="W33-zF-b6y" id="qAi-lf-ufc"/>
                         <outlet property="thirdSecScrollVImage" destination="ygJ-Vj-SIZ" id="G0C-pG-KnJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaX-n3-e6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3950.3816793893129" y="-238.02816901408451"/>
+        </scene>
+        <!--Buy View Controller-->
+        <scene sceneID="wqi-Cm-5RL">
+            <objects>
+                <viewController storyboardIdentifier="BuyViewController" id="hBs-c0-5Py" customClass="BuyViewController" customModule="TicketBuyer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0WS-Sb-dB6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UPl-4l-zkP">
+                                <rect key="frame" x="20" y="103" width="353" height="190"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZs-ev-OXc">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="0e8-3c-f7R"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLt-Yq-igt">
+                                        <rect key="frame" x="0.0" y="140" width="353" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tAx-3H-s2M"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Od0-2G-j5k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UPl-4l-zkP" firstAttribute="top" secondItem="Od0-2G-j5k" secondAttribute="top" id="NNZ-Eu-Ztn"/>
+                            <constraint firstItem="Od0-2G-j5k" firstAttribute="trailing" secondItem="UPl-4l-zkP" secondAttribute="trailing" constant="20" id="VEF-Rm-AAj"/>
+                            <constraint firstItem="UPl-4l-zkP" firstAttribute="leading" secondItem="Od0-2G-j5k" secondAttribute="leading" constant="20" id="znk-L8-g08"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BPH-Ig-ahG"/>
+                    <connections>
+                        <outlet property="pickerView" destination="TZs-ev-OXc" id="0qR-FL-CWJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkd-Vj-l3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4778" y="-580"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="usW-Fz-qHW">
+            <objects>
+                <viewController id="MVy-q7-Fvf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cj7-79-gEt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Ui-Sy-go6">
+                                <rect key="frame" x="20" y="414.66666666666669" width="353" height="92"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jy-U7-uVY">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Добавить фильм">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqU-u7-7Pl">
+                                        <rect key="frame" x="0.0" y="56" width="353" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Добавить сеансы">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i2v-8v-n7i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i2v-8v-n7i" firstAttribute="trailing" secondItem="5Ui-Sy-go6" secondAttribute="trailing" constant="20" id="RfY-Ga-hQN"/>
+                            <constraint firstItem="5Ui-Sy-go6" firstAttribute="centerY" secondItem="i2v-8v-n7i" secondAttribute="centerY" id="fhO-aO-SuG"/>
+                            <constraint firstItem="5Ui-Sy-go6" firstAttribute="leading" secondItem="i2v-8v-n7i" secondAttribute="leading" constant="20" id="lXq-va-Ebw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7aA-3Q-6t0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9i-xg-bZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4779" y="102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jRL-vm-iDc">
@@ -378,7 +513,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LoL-RA-AZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3023.6641221374043" y="-238.02816901408451"/>
+            <point key="canvasLocation" x="3227" y="-238"/>
         </scene>
     </scenes>
     <resources>

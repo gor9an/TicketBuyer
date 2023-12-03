@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBbTv4GLdrgR_pOSROAetNlGcdn3P1APWI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>474806945415</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>andreigordienko.TicketBuyer</string>
+	<key>PROJECT_ID</key>
+	<string>ticketbuyerbase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ticketbuyerbase.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:474806945415:ios:b877599f887477cbcb1a22</string>
+</dict>
+</plist>
