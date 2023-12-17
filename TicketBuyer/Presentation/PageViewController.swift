@@ -59,7 +59,7 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
         
     }
     
-//    MARK: - Private funcions
+    //    MARK: - Private funcions
     private func checkAdmin() {
         if let currentUser = Auth.auth().currentUser {
             let expectedUid = "OfRBiv5uN8W6SjCMbqrPSSxOpQY2"
@@ -72,7 +72,7 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
         }
     }
     
-//    MARK: - IBActions
+    //    MARK: - IBActions
     @IBAction func exitButtonTapped(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -80,7 +80,7 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
             print(error)
         }
     }
-
+    
     @IBAction func movieButtonTapped(_ sender: Any) {
     }
     
@@ -92,7 +92,7 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
         self.present(newVC, animated: true, completion: nil)
     }
     
-//    MARK: AlertPresenterDelegate
+    //    MARK: AlertPresenterDelegate
     func didReceiveAlert() { }
 }
 

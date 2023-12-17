@@ -18,12 +18,20 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
                 firstNameTextField.isHidden = false
                 lastNameTextField.isHidden = false
                 
+                firstNameTextField.text = ""
+                lastNameTextField.text = ""
+                emailTextField.text = ""
+                passwordTextField.text = ""
+                
                 notificationLabel.text = "У вас уже есть аккаунт?"
             } else {
                 titleLabel.text = "Вход"
                 switchButton.setTitle("Зарегистрироваться", for: .normal)
                 firstNameTextField.isHidden = true
                 lastNameTextField.isHidden = true
+                
+                emailTextField.text = ""
+                passwordTextField.text = ""
                 
                 notificationLabel.text = "У вас нет аккаунта?"
             }
@@ -52,16 +60,14 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        switchButton.layer.cornerRadius = 20
-        
         alertPresenter.delegate = self
     }
     
-//    MARK: - IBActions
+    //    MARK: - IBActions
     @IBAction private func switchButtonTapped(_ sender: Any) {
         signUp = !signUp
     }
-
+    
     
 }
 

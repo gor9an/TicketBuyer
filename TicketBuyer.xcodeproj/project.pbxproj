@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B003A7032B2B8E7E00C14D58 /* AddMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7022B2B8E7E00C14D58 /* AddMovieViewController.swift */; };
+		B003A7052B2DCF1900C14D58 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B003A7042B2DCF1900C14D58 /* FirebaseStorage */; };
+		B003A7072B2DCF9700C14D58 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B003A7062B2DCF9700C14D58 /* FirebaseStorageCombine-Community */; };
+		B003A7092B2F3EE300C14D58 /* MovieSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7082B2F3EE300C14D58 /* MovieSession.swift */; };
+		B003A70B2B2F3F9900C14D58 /* AddSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A70A2B2F3F9900C14D58 /* AddSessionViewController.swift */; };
 		B076E5B92B1A4F0E00636398 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B076E5B82B1A4F0E00636398 /* FirebaseAnalytics */; };
 		B076E5BB2B1A4F0E00636398 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B076E5BA2B1A4F0E00636398 /* FirebaseAuth */; };
 		B076E5BD2B1A4F0E00636398 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B076E5BC2B1A4F0E00636398 /* FirebaseDatabase */; };
@@ -15,7 +20,7 @@
 		B07747632B1B9D97007DF852 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B07747622B1B9D97007DF852 /* GoogleService-Info.plist */; };
 		B07C22842B1D110000C6CB9D /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C22832B1D110000C6CB9D /* BuyViewController.swift */; };
 		B07C22862B1D139F00C6CB9D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C22852B1D139F00C6CB9D /* Movie.swift */; };
-		B0B4445E2B1D1BD4003CE8BB /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4445D2B1D1BD4003CE8BB /* AdminViewController.swift */; };
+		B0BD3D992B2FA2D600940F42 /* EditMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD3D982B2FA2D600940F42 /* EditMovieViewController.swift */; };
 		B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */; };
 		B0BF05F82AF157D300CCF2C7 /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */; };
 		B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */; };
@@ -46,11 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B003A7022B2B8E7E00C14D58 /* AddMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieViewController.swift; sourceTree = "<group>"; };
+		B003A7082B2F3EE300C14D58 /* MovieSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSession.swift; sourceTree = "<group>"; };
+		B003A70A2B2F3F9900C14D58 /* AddSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionViewController.swift; sourceTree = "<group>"; };
 		B077475C2B1A5723007DF852 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B07747622B1B9D97007DF852 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B07C22832B1D110000C6CB9D /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		B07C22852B1D139F00C6CB9D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		B0B4445D2B1D1BD4003CE8BB /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		B0BD3D982B2FA2D600940F42 /* EditMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMovieViewController.swift; sourceTree = "<group>"; };
 		B0BF05F42AF1578C00CCF2C7 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		B0BF05F72AF157D300CCF2C7 /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		B0BF05F92AF157F200CCF2C7 /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 				B076E5BD2B1A4F0E00636398 /* FirebaseDatabase in Frameworks */,
 				B076E5BF2B1A4F0E00636398 /* FirebaseFirestore in Frameworks */,
 				B076E5B92B1A4F0E00636398 /* FirebaseAnalytics in Frameworks */,
+				B003A7052B2DCF1900C14D58 /* FirebaseStorage in Frameworks */,
+				B003A7072B2DCF9700C14D58 /* FirebaseStorageCombine-Community in Frameworks */,
 				B076E5BB2B1A4F0E00636398 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +128,7 @@
 			children = (
 				B0BF05FB2AF1582000CCF2C7 /* AlertModel.swift */,
 				B07C22852B1D139F00C6CB9D /* Movie.swift */,
+				B003A7082B2F3EE300C14D58 /* MovieSession.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,7 +191,9 @@
 				B077475C2B1A5723007DF852 /* AuthViewController.swift */,
 				B0F94EF32ADF419500DB2741 /* PageViewController.swift */,
 				B07C22832B1D110000C6CB9D /* BuyViewController.swift */,
-				B0B4445D2B1D1BD4003CE8BB /* AdminViewController.swift */,
+				B003A7022B2B8E7E00C14D58 /* AddMovieViewController.swift */,
+				B003A70A2B2F3F9900C14D58 /* AddSessionViewController.swift */,
+				B0BD3D982B2FA2D600940F42 /* EditMovieViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -206,6 +219,8 @@
 				B076E5BA2B1A4F0E00636398 /* FirebaseAuth */,
 				B076E5BC2B1A4F0E00636398 /* FirebaseDatabase */,
 				B076E5BE2B1A4F0E00636398 /* FirebaseFirestore */,
+				B003A7042B2DCF1900C14D58 /* FirebaseStorage */,
+				B003A7062B2DCF9700C14D58 /* FirebaseStorageCombine-Community */,
 			);
 			productName = TicketBuyer;
 			productReference = B0F94EEC2ADF419500DB2741 /* TicketBuyer.app */;
@@ -326,9 +341,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0B4445E2B1D1BD4003CE8BB /* AdminViewController.swift in Sources */,
 				B0F94EF42ADF419500DB2741 /* PageViewController.swift in Sources */,
 				B0BF05FA2AF157F200CCF2C7 /* AlertPresenterDelegate.swift in Sources */,
+				B003A70B2B2F3F9900C14D58 /* AddSessionViewController.swift in Sources */,
+				B0BD3D992B2FA2D600940F42 /* EditMovieViewController.swift in Sources */,
 				B0F94EF02ADF419500DB2741 /* AppDelegate.swift in Sources */,
 				B07C22842B1D110000C6CB9D /* BuyViewController.swift in Sources */,
 				B0F94EF22ADF419500DB2741 /* SceneDelegate.swift in Sources */,
@@ -336,7 +352,9 @@
 				B077475D2B1A5723007DF852 /* AuthViewController.swift in Sources */,
 				B0BF05FC2AF1582000CCF2C7 /* AlertModel.swift in Sources */,
 				B0BF05F52AF1578C00CCF2C7 /* AlertPresenter.swift in Sources */,
+				B003A7092B2F3EE300C14D58 /* MovieSession.swift in Sources */,
 				B07C22862B1D139F00C6CB9D /* Movie.swift in Sources */,
+				B003A7032B2B8E7E00C14D58 /* AddMovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +719,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B003A7042B2DCF1900C14D58 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076E5B72B1A4F0E00636398 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		B003A7062B2DCF9700C14D58 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076E5B72B1A4F0E00636398 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
 		B076E5B82B1A4F0E00636398 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B076E5B72B1A4F0E00636398 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

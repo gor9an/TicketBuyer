@@ -9,5 +9,9 @@ import Foundation
 
 struct Movie {
     let title: String
-    let sessions: [Date]
+    var description: String
+    var genre: String
+    var imageURL: String
+    var movieID: String
+//    let sessions: [Date]
 }
