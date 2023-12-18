@@ -71,28 +71,25 @@ class AddSessionViewController: UIViewController, UIPickerViewDataSource, UIPick
             let selectedMovie = movies[selectedMovieIndex]
             let selectedDateTime = dateTimePicker.date
             
-            // Создать объект MovieSession и отправить в Firestore
-            let newSession = MovieSession(movieID: selectedMovie.movieID, dateTime: selectedDateTime)
-            addSessionToFirestore(session: newSession)
+            // Добавить сеанс в подколлекцию sessions для выбранного фильма
+            addSessionToFirestore(movieID: selectedMovie.movieID, dateTime: selectedDateTime)
         } else {
             // Показать предупреждение, что фильм не выбран
             showAlert(message: "Пожалуйста, выберите фильм.")
         }
-        
     }
     
-    func addSessionToFirestore(session: MovieSession) {
-        db.collection("sessions").addDocument(data: [
-            "movieID": session.movieID,
-            "dateTime": session.dateTime
+    func addSessionToFirestore(movieID: String, dateTime: Date) {
+        let movieRef = db.collection("movies").document(movieID)
+        movieRef.collection("sessions").addDocument(data: [
+            "dateTime": Timestamp(date: dateTime)
         ]) { error in
             if let error = error {
                 print("Ошибка при добавлении сеанса: \(error.localizedDescription)")
                 self.showAlert(message: "Ошибка при добавлении сеанса. Пожалуйста, попробуйте еще раз.")
             } else {
                 print("Сеанс успешно добавлен в базу данных.")
-                
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }

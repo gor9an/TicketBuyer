@@ -39,7 +39,6 @@ class AddMovieViewController: UIViewController,
         descriptionTextView.delegate = self
         
         imageView.layer.cornerRadius = 10
-        
         descriptionTextView.layer.cornerRadius = 15
         
         imagePicker.delegate = self
@@ -153,7 +152,7 @@ class AddMovieViewController: UIViewController,
                 let newMovieID = ref!.documentID
                 print("Фильм успешно добавлен в базу данных. ID документа: \(newMovieID)")
                 
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }

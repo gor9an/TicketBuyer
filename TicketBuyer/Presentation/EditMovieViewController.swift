@@ -6,23 +6,30 @@
 //
 
 import UIKit
-
-import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
-class EditMovieViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class EditMovieViewController: UIViewController,
+                               UIPickerViewDataSource,
+                               UIPickerViewDelegate,
+                               UIImagePickerControllerDelegate,
+                               UINavigationControllerDelegate,
+                               UITextViewDelegate{
     
     @IBOutlet weak var moviePickerView: UIPickerView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var genrePickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
     
-    let genres = ["Action", "Comedy", "Drama", "Fantasy", "Sci-Fi", "Thriller"] // Список доступных жанров
+    let genres = ["Боевик", "Комедия", "Драма", "Фантастика", "Научная фантастика", "Триллер"]
     var selectedGenre: String?
     
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     var movies: [Movie] = []
     var selectedMovie: Movie?
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +38,10 @@ class EditMovieViewController: UIViewController, UIPickerViewDataSource, UIPicke
         moviePickerView.delegate = self
         genrePickerView.dataSource = self
         genrePickerView.delegate = self
+        
+        descriptionTextView.delegate = self
+        
+        imagePicker.delegate = self
         
         loadMovies()
     }
@@ -46,11 +57,18 @@ class EditMovieViewController: UIViewController, UIPickerViewDataSource, UIPicke
                     let description = data["description"] as? String ?? ""
                     let genre = data["genre"] as? String ?? ""
                     let imageURL = data["imageURL"] as? String ?? ""
-                    return Movie(title: title, description: description, genre: genre, imageURL: imageURL)
+                    let movieID = document.documentID
+                    return Movie(title: title, description: description, genre: genre, imageURL: imageURL, movieID: movieID)
                 } ?? []
+                
+                guard self.movies.count != 0 else {
+                    self.navigationController?.popViewController(animated: true)
+                    return
+                }
                 
                 // Обновите данные в pickerView после загрузки фильмов
                 self.moviePickerView.reloadAllComponents()
+                self.genrePickerView.reloadAllComponents()
                 
                 // Вызовите метод для обновления UI после выбора фильма
                 self.pickerView(self.moviePickerView, didSelectRow: 0, inComponent: 0)
@@ -65,16 +83,40 @@ class EditMovieViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return movies.count
+        if pickerView == moviePickerView {
+            return movies.count
+        } else if pickerView == genrePickerView {
+            return genres.count
+        }
+        return 0
+    }
+    
+    // MARK: - UITextViewDelegate
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return movies[row].title
+        if pickerView == moviePickerView {
+            return movies[row].title
+        } else if pickerView == genrePickerView {
+            return genres[row]
+        }
+        return nil
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedMovie = movies[row]
-        updateUI()
+        if pickerView == moviePickerView {
+            selectedMovie = movies[row]
+            updateUI()
+        } else if pickerView == genrePickerView {
+            selectedGenre = genres[row]
+        }
     }
     
     // MARK: - Update UI with selected movie
@@ -89,7 +131,6 @@ class EditMovieViewController: UIViewController, UIPickerViewDataSource, UIPicke
             genrePickerView.selectRow(genreIndex, inComponent: 0, animated: true)
             selectedGenre = selectedMovie.genre
         }
-        
         // Загрузите изображение из URL и установите в imageView
         if let imageURL = URL(string: selectedMovie.imageURL) {
             DispatchQueue.global().async {
@@ -116,20 +157,101 @@ class EditMovieViewController: UIViewController, UIPickerViewDataSource, UIPicke
             showAlert(message: "Пожалуйста, заполните все обязательные поля.")
             return
         }
-        // Обновите данные в Firestore
-        db.collection("movies").document(selectedMovie.title).updateData([
-            "description": description,
-            "genre": genre
-            // Если вы также хотите обновить изображение, добавьте "imageURL": newImageURL
-        ]) { error in
-            if let error = error {
-                print("Ошибка при обновлении фильма: \(error.localizedDescription)")
-                self.showAlert(message: "Ошибка при обновлении фильма. Пожалуйста, попробуйте еще раз.")
-            } else {
-                print("Фильм успешно обновлен в базе данных.")
-                // После успешного обновления, вы можете выполнить дополнительные действия
+        
+        // Преобразовать изображение в данные JPEG
+        guard let image = imageView.image,
+              let imageData = image.jpegData(compressionQuality: 0.5) else {
+            showAlert(message: "Пожалуйста, выберите изображение.")
+            return
+        }
+        
+        // Создать уникальное имя файла для изображения
+        let imageName = UUID().uuidString
+        let imageRef = storage.reference().child("movie_images").child(imageName)
+        
+        // Загрузить изображение в Firebase Storage
+        imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            guard metadata != nil, error == nil else {
+                // Обработать ошибку загрузки изображения
+                self.showAlert(message: "Ошибка при загрузке изображения.")
+                return
+            }
+            
+            // Получить URL загруженного изображения
+            imageRef.downloadURL { (url, error) in
+                guard let imageURL = url?.absoluteString else {
+                    // Обработать ошибку получения URL изображения
+                    self.showAlert(message: "Ошибка при получении URL изображения.")
+                    return
+                }
+                
+                // Обновите данные в Firestore
+                self.db.collection("movies").document(selectedMovie.movieID).updateData([
+                    "description": description,
+                    "genre": genre,
+                    "imageURL": imageURL
+                ]) { error in
+                    if let error = error {
+                        print("Ошибка при обновлении фильма: \(error.localizedDescription)")
+                        self.showAlert(message: "Ошибка при обновлении фильма. Пожалуйста, попробуйте еще раз.")
+                    } else {
+                        print("Фильм успешно обновлен в базе данных.")
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
             }
         }
+    }
+    
+    @IBAction func changeImage(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            imageView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteMovie(_ sender: Any) {
+        guard let selectedMovie = selectedMovie else {
+            showAlert(message: "Выберите фильм для удаления.")
+            return
+        }
+        
+        let alert = UIAlertController(title: "Удалить фильм?", message: "Вы уверены, что хотите удалить выбранный фильм?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { _ in
+            // Удаление фильма из Firestore
+            self.db.collection("movies").document(selectedMovie.movieID).delete { error in
+                if let error = error {
+                    print("Ошибка при удалении фильма: \(error.localizedDescription)")
+                    self.showAlert(message: "Ошибка при удалении фильма. Пожалуйста, попробуйте еще раз.")
+                } else {
+                    print("Фильм успешно удален из базы данных.")
+                    // Выполните дополнительные действия после удаления фильма
+                    self.clearUI()
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // Очистка UI после удаления фильма
+    func clearUI() {
+        descriptionTextView.text = ""
+        imageView.image = nil
+        selectedMovie = nil
+        selectedGenre = nil
+        moviePickerView.reloadAllComponents()
+        genrePickerView.reloadAllComponents()
     }
     
     func showAlert(message: String) {

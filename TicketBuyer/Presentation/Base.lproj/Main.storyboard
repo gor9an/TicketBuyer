@@ -459,7 +459,7 @@
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Rm9-pF-S0g" kind="presentation" id="mcf-Jd-GIa"/>
+                                            <segue destination="Rm9-pF-S0g" kind="show" id="mcf-Jd-GIa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0x-U7-0aq">
@@ -470,7 +470,7 @@
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MVy-q7-Fvf" kind="presentation" id="YIj-fB-I6w"/>
+                                            <segue destination="MVy-q7-Fvf" kind="show" id="YIj-fB-I6w"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPC-H7-I1q">
@@ -480,14 +480,20 @@
                                         <state key="normal" title="Редактировать фильмы">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Joq-Ev-BLw" kind="show" id="CJV-2E-uxq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7F-BO-w2z">
                                         <rect key="frame" x="0.0" y="164.99999999999994" width="353" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Редактировать сеансы">
+                                        <state key="normal" title="Удалить сеансы">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="njF-p0-W8X" kind="show" id="jbc-xS-KWd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -511,11 +517,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddMovieViewController" id="Rm9-pF-S0g" customClass="AddMovieViewController" customModule="TicketBuyer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="56M-tu-rh7">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dTC-Ws-JSQ">
-                                <rect key="frame" x="20" y="60" width="353" height="665"/>
+                                <rect key="frame" x="20" y="123" width="353" height="665"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте фильм" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmu-tj-z1p">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="24"/>
@@ -607,9 +613,10 @@
                         <constraints>
                             <constraint firstItem="M1I-Ik-qwt" firstAttribute="trailing" secondItem="dTC-Ws-JSQ" secondAttribute="trailing" constant="20" id="1FW-KC-eoP"/>
                             <constraint firstItem="dTC-Ws-JSQ" firstAttribute="leading" secondItem="M1I-Ik-qwt" secondAttribute="leading" constant="20" id="o3L-gd-R8K"/>
-                            <constraint firstItem="dTC-Ws-JSQ" firstAttribute="top" secondItem="M1I-Ik-qwt" secondAttribute="top" constant="60" id="pA8-bc-JhT"/>
+                            <constraint firstItem="dTC-Ws-JSQ" firstAttribute="top" secondItem="M1I-Ik-qwt" secondAttribute="top" constant="20" id="pA8-bc-JhT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tdm-59-pGJ"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="YAe-du-hxO" id="KHn-UB-EPF"/>
                         <outlet property="genrePickerView" destination="3rE-c2-7Hw" id="KZx-lH-HPR"/>
@@ -618,19 +625,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="StR-9e-OJR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="PhS-Fb-ISF"/>
             </objects>
-            <point key="canvasLocation" x="5601" y="-114"/>
+            <point key="canvasLocation" x="5824" y="-911"/>
         </scene>
         <!--Add Session View Controller-->
         <scene sceneID="usW-Fz-qHW">
             <objects>
                 <viewController storyboardIdentifier="AddSessionViewController" id="MVy-q7-Fvf" customClass="AddSessionViewController" customModule="TicketBuyer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cj7-79-gEt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Ui-Sy-go6">
-                                <rect key="frame" x="20" y="60" width="353" height="611"/>
+                                <rect key="frame" x="20" y="123" width="353" height="611"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавьте сеансы" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-S3-e32">
                                         <rect key="frame" x="97" y="0.0" width="159" height="24"/>
@@ -644,7 +652,7 @@
                                             <constraint firstAttribute="height" constant="120" id="0r2-XU-q87"/>
                                         </constraints>
                                     </pickerView>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="ikq-2x-zT1">
+                                    <datePicker contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="ikq-2x-zT1">
                                         <rect key="frame" x="0.0" y="184" width="353" height="372"/>
                                         <locale key="locale" localeIdentifier="ru_RU"/>
                                     </datePicker>
@@ -665,13 +673,14 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="i2v-8v-n7i" firstAttribute="trailing" secondItem="5Ui-Sy-go6" secondAttribute="trailing" constant="20" id="RfY-Ga-hQN"/>
-                            <constraint firstItem="5Ui-Sy-go6" firstAttribute="top" secondItem="i2v-8v-n7i" secondAttribute="top" constant="60" id="aI1-EB-BJA"/>
+                            <constraint firstItem="5Ui-Sy-go6" firstAttribute="top" secondItem="i2v-8v-n7i" secondAttribute="top" constant="20" id="aI1-EB-BJA"/>
                             <constraint firstItem="5Ui-Sy-go6" firstAttribute="leading" secondItem="i2v-8v-n7i" secondAttribute="leading" constant="20" id="lXq-va-Ebw"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Bfv-Yd-4lV" appends="YES" id="iru-YQ-vWh"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="EtT-Vt-R2d"/>
                     <connections>
                         <outlet property="dateTimePicker" destination="ikq-2x-zT1" id="NFO-tv-GGg"/>
                         <outlet property="moviePickerView" destination="mB9-lO-NPP" id="apd-3X-Ly2"/>
@@ -680,7 +689,168 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9i-xg-bZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Bfv-Yd-4lV"/>
             </objects>
-            <point key="canvasLocation" x="5602" y="533"/>
+            <point key="canvasLocation" x="5824" y="-265"/>
+        </scene>
+        <!--Edit Movie View Controller-->
+        <scene sceneID="epc-yh-vJv">
+            <objects>
+                <viewController storyboardIdentifier="EditMovieViewController" id="Joq-Ev-BLw" customClass="EditMovieViewController" customModule="TicketBuyer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Q1-CQ-lmd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="72f-1p-Cy5">
+                                <rect key="frame" x="20" y="123" width="353" height="658"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Lu-Cw-k4I">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vQF-pQ-Xf8">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <color key="backgroundColor" systemColor="labelColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="ntL-Gx-9GA"/>
+                                                    <constraint firstAttribute="height" constant="100" id="yKk-oL-Frc"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fJC-1W-eqH">
+                                                <rect key="frame" x="110" y="0.0" width="243" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5a-yt-NRU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="243" height="100"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Поменять картинку"/>
+                                                        <connections>
+                                                            <action selector="changeImage:" destination="Joq-Ev-BLw" eventType="touchUpInside" id="n3K-OA-q4x"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHY-2W-K1e">
+                                        <rect key="frame" x="0.0" y="120" width="353" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="fCA-Zg-pxf"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q85-9A-vY3">
+                                        <rect key="frame" x="0.0" y="240" width="353" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="uDc-GQ-38f"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg0-Fc-ENe">
+                                        <rect key="frame" x="0.0" y="360" width="353" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yel-7f-5fe">
+                                        <rect key="frame" x="0.0" y="398" width="353" height="150"/>
+                                        <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="pdz-jM-tdW"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTy-gv-RBL">
+                                        <rect key="frame" x="0.0" y="568" width="353" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Обновить"/>
+                                        <connections>
+                                            <action selector="updateMovie:" destination="Joq-Ev-BLw" eventType="touchUpInside" id="Vaz-sg-xVc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i9-Ia-gcD">
+                                        <rect key="frame" x="0.0" y="623" width="353" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Удалить"/>
+                                        <connections>
+                                            <action selector="deleteMovie:" destination="Joq-Ev-BLw" eventType="touchUpInside" id="xLw-VB-vi4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b8O-kf-Fpa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b8O-kf-Fpa" firstAttribute="trailing" secondItem="72f-1p-Cy5" secondAttribute="trailing" constant="20" id="NSW-mx-6ur"/>
+                            <constraint firstItem="72f-1p-Cy5" firstAttribute="leading" secondItem="b8O-kf-Fpa" secondAttribute="leading" constant="20" id="SI5-PZ-G2P"/>
+                            <constraint firstItem="72f-1p-Cy5" firstAttribute="top" secondItem="b8O-kf-Fpa" secondAttribute="top" constant="20" id="fTa-cq-C0m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DoT-tu-TcD"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Yel-7f-5fe" id="hEL-dC-VSZ"/>
+                        <outlet property="genrePickerView" destination="q85-9A-vY3" id="brG-FB-cWa"/>
+                        <outlet property="imageView" destination="vQF-pQ-Xf8" id="Kn5-KZ-LIT"/>
+                        <outlet property="moviePickerView" destination="KHY-2W-K1e" id="h5d-90-HbY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBO-gp-9Tr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="mQs-F5-eFh"/>
+            </objects>
+            <point key="canvasLocation" x="5824" y="401"/>
+        </scene>
+        <!--Delete Session View Controller-->
+        <scene sceneID="HA9-4I-xKd">
+            <objects>
+                <viewController storyboardIdentifier="DeleteSessionViewController" id="njF-p0-W8X" customClass="DeleteSessionViewController" customModule="TicketBuyer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="DeleteSessionViewController" id="qBa-W7-Lde">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xnr-MC-2fm">
+                                <rect key="frame" x="20" y="123" width="353" height="551"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Удаление сеансов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5Q-7S-a2n">
+                                        <rect key="frame" x="92.000000000000014" y="0.0" width="169.33333333333337" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Hm-wP-Buc">
+                                        <rect key="frame" x="16.666666666666657" y="44" width="320" height="216"/>
+                                    </pickerView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzK-T8-1GY">
+                                        <rect key="frame" x="16.666666666666657" y="280" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ve-Sf-VKw">
+                                        <rect key="frame" x="140.66666666666666" y="516" width="72" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Удалить"/>
+                                        <connections>
+                                            <action selector="deleteSession:" destination="njF-p0-W8X" eventType="touchUpInside" id="nau-1f-ouD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kLH-fe-KP6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kLH-fe-KP6" firstAttribute="trailing" secondItem="Xnr-MC-2fm" secondAttribute="trailing" constant="20" id="G96-Ig-siz"/>
+                            <constraint firstItem="Xnr-MC-2fm" firstAttribute="leading" secondItem="qBa-W7-Lde" secondAttribute="leading" constant="20" id="fyn-ZB-yKN"/>
+                            <constraint firstItem="Xnr-MC-2fm" firstAttribute="top" secondItem="kLH-fe-KP6" secondAttribute="top" constant="20" id="kWB-Li-6O7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KIN-6Q-WKB"/>
+                    <connections>
+                        <outlet property="moviePickerView" destination="3Hm-wP-Buc" id="u1F-PZ-8rs"/>
+                        <outlet property="sessionPickerView" destination="qzK-T8-1GY" id="nCl-Jc-hWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxG-71-MYb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5824" y="1065"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jRL-vm-iDc">
@@ -709,10 +879,10 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="quaternarySystemFillColor">
-            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
