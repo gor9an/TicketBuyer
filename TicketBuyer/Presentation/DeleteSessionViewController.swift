@@ -68,17 +68,21 @@ class DeleteSessionViewController: UIViewController, UIPickerViewDataSource, UIP
                     self.sessions = querySnapshot?.documents.compactMap { document in
                         let data = document.data()
                         let dateTime = (data["dateTime"] as? Timestamp)?.dateValue() ?? Date()
+                        let sessionID = document.documentID
+                        let seats = data["seats"] as? [String: Bool] ?? [:]
 
                         // Проверить, что сеанс еще не прошел
                         if dateTime > Date() {
-                            return MovieSession(movieID: selectedMovie.movieID, dateTime: dateTime)
+                            return MovieSession(movieID: selectedMovie.movieID, dateTime: dateTime, sessionID: sessionID, seats: seats)
                         } else {
                             // Удалить сеанс, который уже прошел
-                            self.deleteSessionFromFirestore(session: MovieSession(movieID: selectedMovie.movieID, dateTime: dateTime))
+                            self.deleteSessionFromFirestore(session: MovieSession(movieID: selectedMovie.movieID, dateTime: dateTime, sessionID: sessionID, seats: seats))
                             return nil
                         }
                     } ?? []
 
+                    self.sessions.sort(by: {$0.dateTime < $1.dateTime})
+                    
                     self.sessionPickerView.reloadAllComponents()
                 }
             }

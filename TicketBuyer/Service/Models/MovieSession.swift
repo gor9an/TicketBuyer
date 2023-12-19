@@ -10,4 +10,6 @@ import Foundation
 struct MovieSession {
     var movieID: String // Идентификатор фильма
     var dateTime: Date // Дата и время сеанса
+    var sessionID: String
+    var seats: [String: Bool]
 }

@@ -70,19 +70,29 @@ class AddSessionViewController: UIViewController, UIPickerViewDataSource, UIPick
         if selectedMovieIndex < movies.count {
             let selectedMovie = movies[selectedMovieIndex]
             let selectedDateTime = dateTimePicker.date
+            let seats = ["0": true,
+                         "1": true,
+                         "2": true,
+                         "3": true,
+                         "4": true,
+                         "5": true,
+                         "6": true,
+                         "7": true,
+                         "8": true]
             
             // Добавить сеанс в подколлекцию sessions для выбранного фильма
-            addSessionToFirestore(movieID: selectedMovie.movieID, dateTime: selectedDateTime)
+            addSessionToFirestore(movieID: selectedMovie.movieID, dateTime: selectedDateTime, seats: seats)
         } else {
             // Показать предупреждение, что фильм не выбран
             showAlert(message: "Пожалуйста, выберите фильм.")
         }
     }
     
-    func addSessionToFirestore(movieID: String, dateTime: Date) {
+    func addSessionToFirestore(movieID: String, dateTime: Date, seats: [String: Bool]) {
         let movieRef = db.collection("movies").document(movieID)
         movieRef.collection("sessions").addDocument(data: [
-            "dateTime": Timestamp(date: dateTime)
+            "dateTime": Timestamp(date: dateTime),
+            "seats": seats
         ]) { error in
             if let error = error {
                 print("Ошибка при добавлении сеанса: \(error.localizedDescription)")

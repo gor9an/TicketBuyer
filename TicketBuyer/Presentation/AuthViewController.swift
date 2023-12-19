@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class AuthViewController: UIViewController, AlertPresenterDelegate {
+class AuthViewController: UIViewController {
     
     var signUp: Bool = true {
         willSet {
@@ -46,21 +46,12 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
     @IBOutlet weak var notificationLabel: UILabel!
     @IBOutlet weak var switchButton: UIButton!
     
-    private var alertPresenter: AlertPresenterProtocol = AlertPresenter()
-    
-    let viewModel = AlertModel(
-        title: "Ошибка",
-        message: "Заполните все поля",
-        buttonText: "Продожить")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        alertPresenter.delegate = self
     }
     
     //    MARK: - IBActions
@@ -68,7 +59,17 @@ class AuthViewController: UIViewController, AlertPresenterDelegate {
         signUp = !signUp
     }
     
-    
+    func sendEmailVerification(user: User) {
+        user.sendEmailVerification { error in
+            if let error = error {
+                print("Ошибка при отправке письма с подтверждением: \(error.localizedDescription)")
+                // Дополнительная обработка ошибок
+            } else {
+                print("Письмо с подтверждением успешно отправлено")
+                // Дополнительные действия после успешной отправки письма
+            }
+        }
+    }
 }
 
 // MARK: - AuthViewController extension
@@ -89,31 +90,29 @@ extension AuthViewController: UITextFieldDelegate {
                             let reference = Database.database().reference().child("users")
                             reference.child(result.user.uid).updateChildValues(["firstname": firstname, "email": email])
                             
+                            self.sendEmailVerification(user: result.user)
                             self.dismiss(animated: true, completion: nil)
                         }
                     } else {
                         if let error {
-                            let viewModel = AlertModel(
-                                title: "Ошибка",
-                                message: "\(String(describing: error.localizedDescription))",
-                                buttonText: "Продожить")
-                            self.alertPresenter.requestAlert(result: viewModel)
+                            self.showAlert(message: String(describing: error.localizedDescription))
                         }
                     }
                 }
             } else {
-                alertPresenter.requestAlert(result: viewModel)
+                self.showAlert(message: "Заполните все поля")
             }
             
         }else {
             if (!email.isEmpty && !password.isEmpty) {
                 Auth.auth().signIn(withEmail: email, password: password) { result, error in
                     if error == nil {
+                        
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
             } else {
-                alertPresenter.requestAlert(result: viewModel)
+                self.showAlert(message: "Заполните все поля")
             }
             
         }
@@ -121,6 +120,10 @@ extension AuthViewController: UITextFieldDelegate {
         return true
     }
     
-    //    MARK: - AlertPresenterDelegate
-    func didReceiveAlert() {}
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Внимание", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }

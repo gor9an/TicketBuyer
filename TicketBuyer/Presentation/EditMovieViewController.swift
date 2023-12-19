@@ -43,6 +43,9 @@ class EditMovieViewController: UIViewController,
         
         imagePicker.delegate = self
         
+        imageView.layer.cornerRadius = 10
+        descriptionTextView.layer.cornerRadius = 15
+        
         loadMovies()
     }
     

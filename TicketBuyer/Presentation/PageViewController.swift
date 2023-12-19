@@ -8,22 +8,16 @@
 import UIKit
 import Firebase
 
-class PageViewController: UIViewController, AlertPresenterDelegate {
+class PageViewController: UIViewController {
     
     @IBOutlet weak var generalImage: UIImageView!
     
+    @IBOutlet weak var emailLabel: UINavigationItem!
     //Main Stack View Images
     @IBOutlet weak var firstMainStackViewButton: UIButton!
     @IBOutlet weak var secondMainStackViewButton: UIButton!
     @IBOutlet weak var thirdMainStackViewButton: UIButton!
     
-    @IBOutlet weak var firstSecScrollVImage: UIImageView!
-    @IBOutlet weak var secondSecScrollVImage: UIImageView!
-    @IBOutlet weak var thirdSecScrollVImage: UIImageView!
-    
-    
-    
-    @IBOutlet weak var forAllTimeScrollView: UIScrollView!
     @IBOutlet weak var actualScrollView: UIScrollView!
     
     @IBOutlet weak var adminButton: UIButton!
@@ -38,11 +32,11 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
                 self.showModalAuth()
             } else {
                 self.checkAdmin()
+                self.emailLabel.title = Auth.auth().currentUser?.email
             }
         }
         
         //Scroll View settings
-        forAllTimeScrollView.layer.cornerRadius = 30
         actualScrollView.layer.cornerRadius = 30
         
         //Images settings
@@ -52,9 +46,6 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
         
         generalImage.layer.cornerRadius = 30
         
-        firstSecScrollVImage.layer.cornerRadius = 30
-        secondSecScrollVImage.layer.cornerRadius = 30
-        thirdSecScrollVImage.layer.cornerRadius = 30
         adminButton.layer.cornerRadius = 20
         
     }
@@ -81,9 +72,6 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
         }
     }
     
-    @IBAction func movieButtonTapped(_ sender: Any) {
-    }
-    
     private func showModalAuth() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newVC = storyboard.instantiateViewController(withIdentifier: "AuthController") as! AuthViewController
@@ -91,8 +79,5 @@ class PageViewController: UIViewController, AlertPresenterDelegate {
         
         self.present(newVC, animated: true, completion: nil)
     }
-    
-    //    MARK: AlertPresenterDelegate
-    func didReceiveAlert() { }
 }
 
