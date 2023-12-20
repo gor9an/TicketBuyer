@@ -73,7 +73,6 @@ class EditMovieViewController: UIViewController,
                 self.moviePickerView.reloadAllComponents()
                 self.genrePickerView.reloadAllComponents()
                 
-                // Вызовите метод для обновления UI после выбора фильма
                 self.pickerView(self.moviePickerView, didSelectRow: 0, inComponent: 0)
             }
         }
@@ -161,34 +160,27 @@ class EditMovieViewController: UIViewController,
             return
         }
         
-        // Преобразовать изображение в данные JPEG
         guard let image = imageView.image,
               let imageData = image.jpegData(compressionQuality: 0.5) else {
             showAlert(message: "Пожалуйста, выберите изображение.")
             return
         }
         
-        // Создать уникальное имя файла для изображения
         let imageName = UUID().uuidString
         let imageRef = storage.reference().child("movie_images").child(imageName)
         
-        // Загрузить изображение в Firebase Storage
         imageRef.putData(imageData, metadata: nil) { (metadata, error) in
             guard metadata != nil, error == nil else {
-                // Обработать ошибку загрузки изображения
                 self.showAlert(message: "Ошибка при загрузке изображения.")
                 return
             }
             
-            // Получить URL загруженного изображения
             imageRef.downloadURL { (url, error) in
                 guard let imageURL = url?.absoluteString else {
-                    // Обработать ошибку получения URL изображения
                     self.showAlert(message: "Ошибка при получении URL изображения.")
                     return
                 }
                 
-                // Обновите данные в Firestore
                 self.db.collection("movies").document(selectedMovie.movieID).updateData([
                     "description": description,
                     "genre": genre,
@@ -247,7 +239,6 @@ class EditMovieViewController: UIViewController,
         present(alert, animated: true, completion: nil)
     }
     
-    // Очистка UI после удаления фильма
     func clearUI() {
         descriptionTextView.text = ""
         imageView.image = nil

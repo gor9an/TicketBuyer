@@ -40,7 +40,6 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     func loadMovies() {
-        // Загрузить список фильмов из базы данных
         db.collection("movies").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Ошибка при загрузке фильмов: \(error.localizedDescription)")
@@ -69,7 +68,6 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     func loadSessionsForSelectedMovie() {
-        // Загрузить сеансы для выбранного фильма
         if let selectedMovie = selectedMovie {
             db.collection("movies").document(selectedMovie.movieID).collection("sessions").getDocuments { (querySnapshot, error) in
                 if let error = error {
@@ -81,7 +79,6 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
                         let sessionID = document.documentID
                         let seats = (data["seats"] as? [String: Bool]) ?? [:]
                         
-                        // Проверить, что сеанс еще не прошел
                         if dateTime > Date() {
                             return MovieSession(movieID: selectedMovie.movieID, dateTime: dateTime, sessionID: sessionID, seats: seats)
                         } else {
@@ -101,20 +98,15 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     func deleteSessionFromFirestore(session: MovieSession) {
-        db.collection("movies").document(session.movieID).collection("sessions").whereField("dateTime", isEqualTo: session.dateTime).getDocuments { (querySnapshot, error) in
+        db.collection("movies").document(session.movieID).collection("sessions").document(session.sessionID).delete { error in
             if let error = error {
                 print("Ошибка при удалении сеанса: \(error.localizedDescription)")
                 self.showAlert(message: "Ошибка при удалении сеанса. Пожалуйста, попробуйте еще раз.")
             } else {
-                if let document = querySnapshot?.documents.first {
-                    document.reference.delete { error in
-                        if let error = error {
-                            print("Ошибка при удалении сеанса: \(error.localizedDescription)")
-                            self.showAlert(message: "Ошибка при удалении сеанса. Пожалуйста, попробуйте еще раз.")
-                        } else {
-                            print("Сеанс успешно удален из базы данных.")
-                        }
-                    }
+                print("Сеанс успешно удален из базы данных.")
+                
+                if let index = self.sessions.firstIndex(where: { $0.sessionID == session.sessionID }) {
+                    self.sessions.remove(at: index)
                 }
             }
         }
@@ -149,7 +141,6 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
             selectedMovie = movies[row]
             loadSessionsForSelectedMovie()
             
-            // Обновите информацию о фильме
             updateMovieInformation()
         } else if pickerView == sessionDatePickerView {
             if sessions.indices.contains(row) {
@@ -164,10 +155,6 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
         genreLabel.text = "Жанр: \(selectedMovie.genre)"
         descriptionTextView.text = selectedMovie.description
         
-        // Загрузите изображение фильма (используйте свой код для загрузки изображения)
-        // movieImageView.image = ...
-        
-        // Ваш код загрузки изображения из URL может выглядеть следующим образом:
         if let imageURL = URL(string: selectedMovie.imageURL) {
             DispatchQueue.global().async {
                 if let data = try? Data(contentsOf: imageURL) {
@@ -180,19 +167,16 @@ class TicketPurchaseViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        // Проверка, что фильм выбран
         guard let selectedMovie = selectedMovie else {
             showAlert(message: "Пожалуйста, выберите фильм.")
             return
         }
         
-        // Проверка, что сеанс выбран
         guard let selectedSession = selectedSession else {
             showAlert(message: "Пожалуйста, выберите сеанс.")
             return
         }
         
-        // Перейдите к следующему экрану и передайте данные
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newVC = storyboard.instantiateViewController(withIdentifier: "SeatSelectionViewController") as! SeatSelectionViewController
         newVC.selectedMovie = selectedMovie

@@ -31,7 +31,6 @@ class DeleteSessionViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func loadMovies() {
-        // Загрузить список фильмов из базы данных
         db.collection("movies").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Ошибка при загрузке фильмов: \(error.localizedDescription)")
@@ -59,7 +58,6 @@ class DeleteSessionViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func loadSessionsForSelectedMovie() {
-        // Загрузить сеансы для выбранного фильма
         if let selectedMovie = selectedMovie {
             db.collection("movies").document(selectedMovie.movieID).collection("sessions").getDocuments { (querySnapshot, error) in
                 if let error = error {
@@ -70,7 +68,7 @@ class DeleteSessionViewController: UIViewController, UIPickerViewDataSource, UIP
                         let dateTime = (data["dateTime"] as? Timestamp)?.dateValue() ?? Date()
                         let sessionID = document.documentID
                         let seats = data["seats"] as? [String: Bool] ?? [:]
-
+                        
                         // Проверить, что сеанс еще не прошел
                         if dateTime > Date() {
                             return MovieSession(movieID: selectedMovie.movieID, dateTime: dateTime, sessionID: sessionID, seats: seats)
@@ -80,7 +78,7 @@ class DeleteSessionViewController: UIViewController, UIPickerViewDataSource, UIP
                             return nil
                         }
                     } ?? []
-
+                    
                     self.sessions.sort(by: {$0.dateTime < $1.dateTime})
                     
                     self.sessionPickerView.reloadAllComponents()
@@ -127,28 +125,24 @@ class DeleteSessionViewController: UIViewController, UIPickerViewDataSource, UIP
         if selectedSessionIndex < sessions.count {
             let selectedSession = sessions[selectedSessionIndex]
             deleteSessionFromFirestore(session: selectedSession)
+            self.navigationController?.popViewController(animated: true)
         } else {
             showAlert(message: "Пожалуйста, выберите сеанс для удаления.")
         }
     }
     
     func deleteSessionFromFirestore(session: MovieSession) {
-        db.collection("movies").document(session.movieID).collection("sessions").whereField("dateTime", isEqualTo: session.dateTime).getDocuments { (querySnapshot, error) in
+        db.collection("movies").document(session.movieID).collection("sessions").document(session.sessionID).delete { error in
             if let error = error {
                 print("Ошибка при удалении сеанса: \(error.localizedDescription)")
                 self.showAlert(message: "Ошибка при удалении сеанса. Пожалуйста, попробуйте еще раз.")
             } else {
-                if let document = querySnapshot?.documents.first {
-                    document.reference.delete { error in
-                        if let error = error {
-                            print("Ошибка при удалении сеанса: \(error.localizedDescription)")
-                            self.showAlert(message: "Ошибка при удалении сеанса. Пожалуйста, попробуйте еще раз.")
-                        } else {
-                            print("Сеанс успешно удален из базы данных.")
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                    }
+                print("Сеанс успешно удален из базы данных.")
+                // Удалить сеанс из массива sessions
+                if let index = self.sessions.firstIndex(where: { $0.sessionID == session.sessionID }) {
+                    self.sessions.remove(at: index)
                 }
+                self.sessionPickerView.reloadAllComponents()
             }
         }
     }

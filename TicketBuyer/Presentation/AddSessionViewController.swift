@@ -14,7 +14,7 @@ class AddSessionViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var dateTimePicker: UIDatePicker!
     
     let db = Firestore.firestore()
-    var movies: [Movie] = [] // Список фильмов, полученных из базы данных
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class AddSessionViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func loadMovies() {
-        // Загрузить список фильмов из базы данных
         db.collection("movies").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Ошибка при загрузке фильмов: \(error.localizedDescription)")
@@ -80,10 +79,8 @@ class AddSessionViewController: UIViewController, UIPickerViewDataSource, UIPick
                          "7": true,
                          "8": true]
             
-            // Добавить сеанс в подколлекцию sessions для выбранного фильма
             addSessionToFirestore(movieID: selectedMovie.movieID, dateTime: selectedDateTime, seats: seats)
         } else {
-            // Показать предупреждение, что фильм не выбран
             showAlert(message: "Пожалуйста, выберите фильм.")
         }
     }

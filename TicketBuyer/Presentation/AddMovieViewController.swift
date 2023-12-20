@@ -99,31 +99,25 @@ class AddMovieViewController: UIViewController,
               let description = descriptionTextView.text, !description.isEmpty,
               let genre = selectedGenre, !genre.isEmpty,
               let image = imageView.image else {
-            // Показать предупреждение, что не все данные введены
             showAlert(message: "Пожалуйста, заполните все поля и выберите изображение.")
             return
         }
         
         // Преобразовать изображение в данные JPEG
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
-            // Обработать ошибку преобразования изображения
             showAlert(message: "Ошибка при обработке изображения.")
             return
         }
         
-        // Создать уникальное имя файла для изображения
         let imageName = UUID().uuidString
         let imageRef = storage.reference().child("movie_images").child(imageName)
         
-        // Загрузить изображение в Firebase Storage
         imageRef.putData(imageData, metadata: nil) { (metadata, error) in
             guard metadata != nil, error == nil else {
-                // Обработать ошибку загрузки изображения
                 self.showAlert(message: "Ошибка при загрузке изображения.")
                 return
             }
             
-            // Получить URL загруженного изображения
             imageRef.downloadURL { (url, error) in
                 guard let imageURL = url?.absoluteString else {
                     // Обработать ошибку получения URL изображения
@@ -131,7 +125,6 @@ class AddMovieViewController: UIViewController,
                     return
                 }
                 
-                // Создать объект Movie и отправить в Firestore с ссылкой на изображение
                 let newMovie = Movie(title: title, description: description, genre: genre, imageURL: imageURL, movieID: "")
                 self.addMovieToFirestore(movie: newMovie)
             }

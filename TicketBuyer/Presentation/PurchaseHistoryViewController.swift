@@ -14,8 +14,8 @@ class PurchaseHistoryViewController: UIViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var purchaseHistoryTextView: UITextView!
     
     let db = Firestore.firestore()
-    var userEmails: [String] = []  // Массив для хранения email пользователей
-    var selectedUserEmail: String?  // Выбранный email
+    var userEmails: [String] = []
+    var selectedUserEmail: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,9 @@ class PurchaseHistoryViewController: UIViewController, UIPickerViewDelegate, UIP
         
         purchaseHistoryTextView.layer.cornerRadius = 15
         
-        // Загружаем список email пользователей
         loadUserEmails()
     }
     
-    // Загрузка списка email пользователей
     func loadUserEmails() {
         db.collection("users").getDocuments { (querySnapshot, error) in
             if let error = error {
@@ -37,19 +35,15 @@ class PurchaseHistoryViewController: UIViewController, UIPickerViewDelegate, UIP
                 return
             }
             
-            // Очищаем массив перед добавлением новых email
             self.userEmails.removeAll()
             
-            // Добавляем email в массив
             for document in querySnapshot?.documents ?? [] {
                 let userEmail = document.documentID
                 self.userEmails.append(userEmail)
             }
             
-            // Обновляем pickerView
             self.userPickerView.reloadAllComponents()
             
-            // Выбираем первый email, если он есть
             if let firstUserEmail = self.userEmails.first {
                 self.selectedUserEmail = firstUserEmail
                 self.loadPurchaseHistory()
@@ -57,31 +51,26 @@ class PurchaseHistoryViewController: UIViewController, UIPickerViewDelegate, UIP
         }
     }
     
-    // Загрузка истории покупок для выбранного пользователя
     func loadPurchaseHistory() {
         guard let selectedUserEmail = selectedUserEmail else { return }
         
-        // Получаем коллекцию покупок пользователя
         db.collection("users").document(selectedUserEmail).collection("purchases").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Ошибка при загрузке истории покупок: \(error.localizedDescription)")
                 return
             }
             
-            // Очищаем textView перед добавлением новых данных
             self.purchaseHistoryTextView.text = ""
             
-            // Добавляем информацию о каждой покупке в textView
             for document in querySnapshot?.documents ?? [] {
                 let purchaseData = document.data()
-                if let movieID = purchaseData["movieID"] as? String,
-                   let sessionID = purchaseData["sessionID"] as? String,
+                if let title = purchaseData["title"] as? String,
                    let seats = purchaseData["seats"] as? [Int],
                    let timestamp = purchaseData["timestamp"] as? Timestamp {
                     
                     let dateString = self.dateString(from: timestamp.dateValue())
                     
-                    let purchaseInfo = "Фильм: \(movieID)\nСеанс: \(sessionID)\nМеста: \(seats)\nДата: \(dateString)\n\n"
+                    let purchaseInfo = "Фильм: \(title)\nСеанс: \(dateString)\nМеста: \(seats)\n\n"
                     
                     self.purchaseHistoryTextView.text += purchaseInfo
                 }
@@ -89,7 +78,6 @@ class PurchaseHistoryViewController: UIViewController, UIPickerViewDelegate, UIP
         }
     }
     
-    // Форматирование даты в строку
     func dateString(from date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"

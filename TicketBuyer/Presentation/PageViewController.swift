@@ -22,6 +22,8 @@ class PageViewController: UIViewController {
     
     @IBOutlet weak var adminButton: UIButton!
     
+    let db = Firestore.firestore()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +33,17 @@ class PageViewController: UIViewController {
             if user == nil {
                 self.showModalAuth()
             } else {
+                if let currentUser = Auth.auth().currentUser, !currentUser.isEmailVerified {
+                    self.showModalAuth()
+                }
                 self.checkAdmin()
                 self.emailLabel.title = Auth.auth().currentUser?.email
+                self.loadRandomMovieImage()
             }
         }
         
-        //Scroll View settings
         actualScrollView.layer.cornerRadius = 30
         
-        //Images settings
         firstMainStackViewButton.layer.cornerRadius = 30
         secondMainStackViewButton.layer.cornerRadius = 30
         thirdMainStackViewButton.layer.cornerRadius = 30
@@ -51,9 +55,43 @@ class PageViewController: UIViewController {
     }
     
     //    MARK: - Private funcions
+    
+    func loadRandomMovieImage() {
+        db.collection("movies")
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Ошибка при загрузке случайного фильма: \(error.localizedDescription)")
+                } else {
+                    let randomMovie = querySnapshot?.documents.randomElement().flatMap { document -> Movie? in
+                        let data = document.data()
+                        let title = data["title"] as? String ?? ""
+                        let imageURL = data["imageURL"] as? String ?? ""
+                        let movieID = document.documentID
+                        
+                        return Movie(title: title, description: "", genre: "", imageURL: imageURL, movieID: movieID)
+                    }
+                    
+                    if let randomMovie = randomMovie {
+                        self.setRandomMovieImage(randomMovie)
+                    }
+                }
+            }
+    }
+    
+    func setRandomMovieImage(_ movie: Movie) {
+        DispatchQueue.global().async {
+            if let url = URL(string: movie.imageURL), let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.generalImage.image = UIImage(data: data)
+                }
+            }
+        }
+    }
+    
+    
     private func checkAdmin() {
         if let currentUser = Auth.auth().currentUser {
-            let expectedUid = "OfRBiv5uN8W6SjCMbqrPSSxOpQY2"
+            let expectedUid = "TKzdo45kYhdb6skaruTgAx3bAwm2"
             
             if currentUser.uid == expectedUid {
                 adminButton.isHidden = false

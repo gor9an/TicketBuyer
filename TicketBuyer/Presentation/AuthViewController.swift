@@ -88,10 +88,15 @@ extension AuthViewController: UITextFieldDelegate {
                             print(result.user.uid)
                             
                             let reference = Database.database().reference().child("users")
-                            reference.child(result.user.uid).updateChildValues(["firstname": firstname, "email": email])
+                            reference.child(result.user.uid).updateChildValues(["displayName": firstname, "email": email])
                             
                             self.sendEmailVerification(user: result.user)
-                            self.dismiss(animated: true, completion: nil)
+                            self.showAlert(message: "Подтвердите адрес электронной почты для продолжения.")
+                            
+                            self.firstNameTextField.text = ""
+                            self.lastNameTextField.text = ""
+                            self.emailTextField.text = ""
+                            self.passwordTextField.text = ""
                         }
                     } else {
                         if let error {
@@ -107,6 +112,10 @@ extension AuthViewController: UITextFieldDelegate {
             if (!email.isEmpty && !password.isEmpty) {
                 Auth.auth().signIn(withEmail: email, password: password) { result, error in
                     if error == nil {
+                        guard let currentUser = Auth.auth().currentUser, currentUser.isEmailVerified else {
+                            self.showAlert(message: "Подтвердите адрес электронной почты для продолжения.")
+                            return
+                        }
                         
                         self.dismiss(animated: true, completion: nil)
                     }

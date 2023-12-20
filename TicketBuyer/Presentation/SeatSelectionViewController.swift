@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import FirebaseAuth
+import Firebase
 
 class SeatSelectionViewController: UIViewController {
     
@@ -51,11 +50,9 @@ class SeatSelectionViewController: UIViewController {
         }
         
         if selectedSeats.contains(seatIndex) {
-            // Место уже выбрано, снимаем выбор
             selectedSeats.removeAll { $0 == seatIndex }
             sender.isSelected = false
         } else {
-            // Выбираем место
             selectedSeats.append(seatIndex)
             sender.isSelected = true
         }
@@ -66,34 +63,28 @@ class SeatSelectionViewController: UIViewController {
               let sessionID = selectedSession?.sessionID else {
             return
         }
-
-        // Проверяем, подтвержден ли адрес электронной почты пользователя
-        guard let currentUser = Auth.auth().currentUser, currentUser.isEmailVerified else {
-            // Пользователь не подтвердил адрес электронной почты, выводим алерт
-            showAlert(message: "Подтвердите адрес электронной почты для продолжения.")
+        guard !selectedSeats.isEmpty else {
+            showAlert(message: "Выберите место.")
             return
         }
-
-        // Отправляем запрос на резервацию выбранных мест
+        
         reserveSeats(movieID: movieID, sessionID: sessionID, seatIndices: selectedSeats)
     }
-
+    
     
     func reserveSeats(movieID: String, sessionID: String, seatIndices: [Int]) {
         // Создаем словарь для обновления занятости мест
         var seatsData: [String: Bool] = [:]
-
+        
         // Заполняем словарь
         for (index, isEnabled) in seatButtons.enumerated() {
             seatsData["\(index)"] = isEnabled.isEnabled
         }
-
-        // Меняем статус выбранных мест
+        
         for index in seatIndices {
             seatsData["\(index)"] = false
         }
-
-        // Отправляем запрос на резервацию
+        
         db.collection("movies").document(movieID).collection("sessions").document(sessionID).updateData([
             "seats": seatsData
         ]) { error in
@@ -108,37 +99,41 @@ class SeatSelectionViewController: UIViewController {
         }
     }
     
-    // Добавляем информацию о покупке в базу данных
     func addPurchaseToDatabase(movieID: String, sessionID: String, selectedSeats: [Int]) {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
         guard let userEmail = currentUser.email else {
-            // Адрес электронной почты пользователя не найден
+
             showAlert(message: "Не удалось получить адрес электронной почты пользователя.")
             return
         }
-
-        // Создаем уникальный идентификатор для каждой покупки
+        
         let purchaseID = UUID().uuidString
+        
+        guard let title = selectedMovie?.title else {
+            return
+        }
 
-        // Создаем структуру данных для сохранения в коллекцию покупок пользователя
         let purchaseData: [String: Any] = [
             "movieID": movieID,
+            "title": title,
             "sessionID": sessionID,
             "seats": selectedSeats,
             "timestamp": FieldValue.serverTimestamp()
         ]
-
-        // Добавляем данные о покупке в коллекцию пользователя
-        db.collection("users").document("\(userEmail)").collection("purchases").document(purchaseID).setData(purchaseData) { error in
+        
+        db.collection("users").document(userEmail).collection("purchases").document(purchaseID).setData(purchaseData) { error in
             if let error = error {
                 print("Ошибка при сохранении покупки: \(error.localizedDescription)")
             } else {
                 print("Покупка успешно сохранена.")
-                // Опционально: добавьте дополнительные действия при успешной покупке
             }
         }
+                
+        db.collection("users").document(userEmail).setData([
+            "firstname": currentUser.displayName ?? ""
+        ])
     }
     
     func showAlert(message: String) {
